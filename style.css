@@ -1,0 +1,98 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-size: 14px;
+  background: #fbfbfb;
+}
+
+.content {
+  width: 100%;
+  max-width: 1800px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin: 10px;
+}
+
+.example {
+  display: flex;
+  margin: 10px 20px 40px 20px;
+}
+
+.example > div {
+  margin: 20px;
+}
+
+.example__desc {
+  flex: 1;
+  line-height: 1.2;
+}
+
+.example__code-prev {
+  font-family: "Source Code Pro", monospace;
+  flex: 3;
+  overflow: auto;
+  border: 1px solid #cacaca;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.terminal {
+  font-size: 12px;
+}
+
+footer {
+  margin: 20px 10px;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 44px;
+  padding: 4px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 22px;
+  padding: 2px;
+}
+
+h3 {
+  font-size: 16px;
+  padding: 6px 2px;
+}
+
+a {
+  padding: 6px 2px;
+}
+
+p {
+  padding: 6px 2px;
+}
+
+footer {
+  margin: 20px;
+}
+
+.chart-builder__axis path,
+.chart-builder__axis line {
+  stroke: #a2a2a2;
+}
+
+.chart-builder__axis text {
+  fill: #222;
+  font-size: 13px;
+}

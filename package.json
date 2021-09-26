@@ -1,0 +1,20 @@
+{
+  "name": "covid-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "elm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "author": "deciob",
+  "license": "MIT",
+  "devDependencies": {
+    "elm": "^0.19.1-5",
+    "elm-format": "^0.8.5",
+    "http-server": "^13.0.1",
+    "prettier": "^2.4.0",
+    "stylelint": "^13.13.1"
+  },
+  "dependencies": {}
+}
