@@ -94,5 +94,5 @@ view : { a | width : Int } -> List (Html msg)
 view { width } =
     [ desc
     , verticalGrouped width
-    , CodePrev.codePrev CodePrev.codePrevBar
+    , CodePrev.codePrev CodePrev.codePrevBarStacked
     ]

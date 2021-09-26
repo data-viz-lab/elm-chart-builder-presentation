@@ -1,6 +1,7 @@
 module CodePrev exposing
     ( codePrev
     , codePrevBar
+    , codePrevBarStacked
     , codePrevLine
     , codePrevLineAnimated
     )
