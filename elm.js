@@ -11585,6 +11585,7 @@ var $author$project$Bar$view = function (_v0) {
 			$author$project$CodePrev$codePrev($author$project$CodePrev$codePrevBar)
 		]);
 };
+var $author$project$CodePrev$codePrevBarStacked = ' \ntype alias UrbanVsRural =\n    { year : String\n    , population : Float\n    , classification : String\n    }\n\naccessor : Bar.Accessor Data.UrbanVsRural\naccessor =\n    Bar.Accessor (.year >> Just) .classification .population\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Bar.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Bar.withColorPalette colorScheme\n        |> Bar.withBarStyle [ ( "stroke", "#fff" ), ( "stroke-width", "0.5" ) ]\n        |> Bar.withColumnTitle\n            (Bar.yColumnTitle valueFormatter)\n        |> Bar.withGroupedLayout\n        |> Bar.withYAxis yAxis\n        |> Bar.withXAxis xAxis\n        |> Bar.withStackedLayout Bar.diverging\n        |> Bar.render ( Data.countriesUrbanVsRuralFiveYears, accessor )\n        ';
 var $author$project$BarStacked$desc = A2(
 	$elm$html$Html$section,
 	_List_fromArray(
@@ -11775,7 +11776,7 @@ var $author$project$BarStacked$view = function (_v0) {
 		[
 			$author$project$BarStacked$desc,
 			$author$project$BarStacked$verticalGrouped(width),
-			$author$project$CodePrev$codePrev($author$project$CodePrev$codePrevBar)
+			$author$project$CodePrev$codePrev($author$project$CodePrev$codePrevBarStacked)
 		]);
 };
 var $author$project$CodePrev$codePrevLine = ' \ntype alias CityTimeline =\n    { name : String\n    , population : Float\n    , year : Float\n    }\n\naccessor : Line.Accessor Data.ContinuousData\naccessor =\n    Line.cont\n        { xGroup = .name >> Just\n        , xValue = .year\n        , yValue = .population\n        }\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Line.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Line.withColorPalette colorScheme\n        |> Line.withLabels Line.xGroupLabel\n        |> Line.withSymbols [ circle ]\n        |> Line.withLineStyle [ ( "stroke-width", "2" ) ]\n        |> Line.withYAxis yAxis\n        |> Line.withXAxisCont xAxis\n        |> Line.render ( Data.citiesTimeline, accessor )\n        ';
