@@ -21,10 +21,10 @@ import Chart.Line as Line
 import CodePrev
 import Color
 import Data
-import Dict exposing (Dict)
 import Helpers
 import Html exposing (Html)
 import Html.Attributes as Attributes
+import Html.Events as Events
 import Interpolation exposing (Interpolator)
 import Process
 import Scale.Color
@@ -242,40 +242,6 @@ view { width } model =
     , chart width model
     , CodePrev.codePrev CodePrev.codePrevLineAnimated
     ]
-
-
-toYDomain : Data -> ( Float, Float )
-toYDomain data =
-    ( 0
-    , data |> List.map .population |> List.maximum |> Maybe.withDefault 0
-    )
-
-
-toXDomain : ( Float, Float )
-toXDomain =
-    ( 1950, 2000 )
-
-
-dataToFrames : Data -> Dict String Frame
-dataToFrames data =
-    data
-        |> List.foldr
-            (\{ year, name, population } acc ->
-                let
-                    member =
-                        Dict.member name acc
-                in
-                if member then
-                    Dict.update name
-                        (\v ->
-                            v |> Maybe.map (\v_ -> ( year, population ) :: v_)
-                        )
-                        acc
-
-                else
-                    Dict.insert name [ ( year, population ) ] acc
-            )
-            Dict.empty
 
 
 

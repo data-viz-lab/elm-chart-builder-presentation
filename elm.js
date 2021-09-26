@@ -5288,6 +5288,7 @@ var $author$project$Main$LineAnimatedMsg = function (a) {
 	return {$: 'LineAnimatedMsg', a: a};
 };
 var $author$project$LineAnimated$StartAnimation = {$: 'StartAnimation'};
+var $author$project$Line$initialModel = {hinted: $elm$core$Maybe$Nothing, pointAnnotation: $elm$core$Maybe$Nothing, vLineAnnotation: $elm$core$Maybe$Nothing};
 var $author$project$Data$citiesTimeline = _List_fromArray(
 	[
 		{name: 'London', population: 8, year: 1950},
@@ -5369,7 +5370,7 @@ var $author$project$Main$init = function (_v0) {
 	var width = _v0.width;
 	var height = _v0.height;
 	return _Utils_Tuple2(
-		{height: height, lineAnimated: $author$project$LineAnimated$initialModel, width: width},
+		{height: height, line: $author$project$Line$initialModel, lineAnimated: $author$project$LineAnimated$initialModel, width: width},
 		A2(
 			$elm$core$Platform$Cmd$map,
 			$author$project$Main$LineAnimatedMsg,
@@ -5540,8 +5541,53 @@ var $author$project$Main$subscriptions = function (model) {
 				$author$project$LineAnimated$subscriptions(model.lineAnimated))
 			]));
 };
+var $author$project$Main$LineMsg = function (a) {
+	return {$: 'LineMsg', a: a};
+};
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $elm$core$Maybe$map = F2(
+	function (f, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return $elm$core$Maybe$Just(
+				f(value));
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	});
+var $author$project$Line$pointAnnotationStyle = _List_fromArray(
+	[
+		_Utils_Tuple2('fill', '#fff'),
+		_Utils_Tuple2('stroke', '#000'),
+		_Utils_Tuple2('stroke-width', '1.5')
+	]);
+var $author$project$Line$vLineAnnotationStyle = _List_fromArray(
+	[
+		_Utils_Tuple2('stroke', '#999999')
+	]);
+var $author$project$Line$update = F2(
+	function (msg, model) {
+		var response = msg.a;
+		return _Utils_Tuple2(
+			_Utils_update(
+				model,
+				{
+					pointAnnotation: A2(
+						$elm$core$Maybe$map,
+						function (hint) {
+							return _Utils_Tuple2(hint, $author$project$Line$pointAnnotationStyle);
+						},
+						response),
+					vLineAnnotation: A2(
+						$elm$core$Maybe$map,
+						function (hint) {
+							return _Utils_Tuple2(hint, $author$project$Line$vLineAnnotationStyle);
+						},
+						response)
+				}),
+			$elm$core$Platform$Cmd$none);
+	});
 var $elm$core$Basics$negate = function (n) {
 	return -n;
 };
@@ -5938,20 +5984,33 @@ var $author$project$LineAnimated$update = F2(
 	});
 var $author$project$Main$update = F2(
 	function (msg, model) {
-		if (msg.$ === 'NoOp') {
-			return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
-		} else {
-			var subMsg = msg.a;
-			return function (_v1) {
-				var subModel = _v1.a;
-				var subCmd = _v1.b;
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{lineAnimated: subModel}),
-					A2($elm$core$Platform$Cmd$map, $author$project$Main$LineAnimatedMsg, subCmd));
-			}(
-				A2($author$project$LineAnimated$update, subMsg, model.lineAnimated));
+		switch (msg.$) {
+			case 'NoOp':
+				return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+			case 'LineAnimatedMsg':
+				var subMsg = msg.a;
+				return function (_v1) {
+					var subModel = _v1.a;
+					var subCmd = _v1.b;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{lineAnimated: subModel}),
+						A2($elm$core$Platform$Cmd$map, $author$project$Main$LineAnimatedMsg, subCmd));
+				}(
+					A2($author$project$LineAnimated$update, subMsg, model.lineAnimated));
+			default:
+				var subMsg = msg.a;
+				return function (_v2) {
+					var subModel = _v2.a;
+					var subCmd = _v2.b;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{line: subModel}),
+						A2($elm$core$Platform$Cmd$map, $author$project$Main$LineMsg, subCmd));
+				}(
+					A2($author$project$Line$update, subMsg, model.line));
 		}
 	});
 var $elm$json$Json$Encode$string = _Json_wrap;
@@ -6008,8 +6067,15 @@ var $author$project$Main$footer = A2(
 					$elm$html$Html$text('Data source: United Nations, Department of Economic and Social Affairs, Population Division (2018). World Urbanization Prospects: The 2018 Revision, Online Edition.')
 				]))
 		]));
+var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$h2 = _VirtualDom_node('h2');
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
 var $author$project$Main$introView = function (model) {
 	return A2(
 		$elm$html$Html$section,
@@ -6024,7 +6090,16 @@ var $author$project$Main$introView = function (model) {
 				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$text('elm-chart-builder')
+						A2(
+						$elm$html$Html$a,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$href('https://github.com/data-viz-lab/elm-chart-builder')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('elm-chart-builder')
+							]))
 					])),
 				A2(
 				$elm$html$Html$h2,
@@ -6035,6 +6110,8 @@ var $author$project$Main$introView = function (model) {
 					]))
 			]));
 };
+var $elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
+var $elm$html$Html$map = $elm$virtual_dom$VirtualDom$map;
 var $elm$html$Html$code = _VirtualDom_node('code');
 var $elm$html$Html$pre = _VirtualDom_node('pre');
 var $author$project$CodePrev$codePrev = function (content) {
@@ -6065,14 +6142,7 @@ var $author$project$CodePrev$codePrev = function (content) {
 			]));
 };
 var $author$project$CodePrev$codePrevBar = ' \ntype alias GroupData =\n    { x : String\n    , y : Float\n    , groupLabel : String\n    }\n\naccessor : Bar.Accessor Data.GroupData\naccessor =\n    Bar.Accessor (.groupLabel >> Just) .x .y\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Bar.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Bar.withColorPalette colorScheme\n        |> Bar.withColumnTitle\n            (Bar.yColumnTitle valueFormatter)\n        |> Bar.withGroupedLayout\n        |> Bar.withYAxis yAxis\n        |> Bar.withXAxis xAxis\n        |> Bar.render ( Data.groupData, accessor )\n        ';
-var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$html$Html$h3 = _VirtualDom_node('h3');
-var $elm$html$Html$Attributes$href = function (url) {
-	return A2(
-		$elm$html$Html$Attributes$stringProperty,
-		'href',
-		_VirtualDom_noJavaScriptUri(url));
-};
 var $author$project$Bar$desc = A2(
 	$elm$html$Html$section,
 	_List_fromArray(
@@ -10231,16 +10301,6 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$getStackedValuesAndGroup
 					}),
 				$data_viz_lab$elm_chart_builder$Chart$Internal$Type$fromDataBand(data)));
 	});
-var $elm$core$Maybe$map = F2(
-	function (f, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return $elm$core$Maybe$Just(
-				f(value));
-		} else {
-			return $elm$core$Maybe$Nothing;
-		}
-	});
 var $gampleman$elm_visualization$Shape$Stack$calculateExtremes = function (coords) {
 	var folder = F2(
 		function (_v2, _v3) {
@@ -11779,40 +11839,9 @@ var $author$project$BarStacked$view = function (_v0) {
 			$author$project$CodePrev$codePrev($author$project$CodePrev$codePrevBarStacked)
 		]);
 };
-var $author$project$CodePrev$codePrevLine = ' \ntype alias CityTimeline =\n    { name : String\n    , population : Float\n    , year : Float\n    }\n\naccessor : Line.Accessor Data.ContinuousData\naccessor =\n    Line.cont\n        { xGroup = .name >> Just\n        , xValue = .year\n        , yValue = .population\n        }\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Line.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Line.withColorPalette colorScheme\n        |> Line.withLabels Line.xGroupLabel\n        |> Line.withSymbols [ circle ]\n        |> Line.withLineStyle [ ( "stroke-width", "2" ) ]\n        |> Line.withYAxis yAxis\n        |> Line.withXAxisCont xAxis\n        |> Line.render ( Data.citiesTimeline, accessor )\n        ';
-var $author$project$Line$desc = A2(
-	$elm$html$Html$section,
-	_List_fromArray(
-		[
-			$elm$html$Html$Attributes$class('example__desc')
-		]),
-	_List_fromArray(
-		[
-			A2(
-			$elm$html$Html$h3,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$elm$html$Html$text('Continuous line chart with dots and labels')
-				])),
-			A2(
-			$elm$html$Html$p,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$elm$html$Html$text('Population in millions')
-				])),
-			A2(
-			$elm$html$Html$a,
-			_List_fromArray(
-				[
-					$elm$html$Html$Attributes$href('https://github.com/data-viz-lab/homepage/blob/main/src/Line.elm')
-				]),
-			_List_fromArray(
-				[
-					$elm$html$Html$text('source code')
-				]))
-		]));
+var $author$project$Line$Hint = function (a) {
+	return {$: 'Hint', a: a};
+};
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$AccessorContinuous = function (a) {
 	return {$: 'AccessorContinuous', a: a};
 };
@@ -11924,6 +11953,12 @@ var $author$project$Line$circle = A2(
 			]),
 		$data_viz_lab$elm_chart_builder$Chart$Symbol$circle));
 var $author$project$Line$colorScheme = $gampleman$elm_visualization$Scale$Color$tableau10;
+var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$HoverAll = function (a) {
+	return {$: 'HoverAll', a: a};
+};
+var $data_viz_lab$elm_chart_builder$Chart$Line$hoverAll = function (msg) {
+	return $data_viz_lab$elm_chart_builder$Chart$Internal$Event$HoverAll(msg);
+};
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$GroupedLine = {$: 'GroupedLine'};
 var $data_viz_lab$elm_chart_builder$Chart$Line$withGroupedLayout = function (config) {
 	return A2($data_viz_lab$elm_chart_builder$Chart$Internal$Type$setLayout, $data_viz_lab$elm_chart_builder$Chart$Internal$Type$GroupedLine, config);
@@ -17634,6 +17669,126 @@ var $data_viz_lab$elm_chart_builder$Chart$Line$render = F2(
 				return $elm$html$Html$text('');
 		}
 	});
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $author$project$Line$tooltip = F2(
+	function (width, model) {
+		var margin = $author$project$Helpers$marginWithLabel;
+		var xOffset = margin.left + 20;
+		var height = $author$project$Helpers$toChartHeight(
+			$author$project$Helpers$toChartWidth(width));
+		var annotation = model.pointAnnotation;
+		var bottom = A2(
+			$elm$core$Maybe$withDefault,
+			'',
+			A2(
+				$elm$core$Maybe$map,
+				function (_v2) {
+					var yPosition = _v2.yPosition;
+					return $elm$core$String$fromFloat(height - yPosition) + 'px';
+				},
+				A2($elm$core$Maybe$map, $elm$core$Tuple$first, annotation)));
+		var display = A2(
+			$elm$core$Maybe$withDefault,
+			'none',
+			A2(
+				$elm$core$Maybe$map,
+				$elm$core$Basics$always('block'),
+				annotation));
+		var left = A2(
+			$elm$core$Maybe$withDefault,
+			'',
+			A2(
+				$elm$core$Maybe$map,
+				function (_v1) {
+					var xPosition = _v1.xPosition;
+					return $elm$core$String$fromFloat(xPosition + xOffset) + 'px';
+				},
+				A2($elm$core$Maybe$map, $elm$core$Tuple$first, annotation)));
+		var values = A2(
+			$elm$core$List$map,
+			function (_v0) {
+				var groupLabel = _v0.groupLabel;
+				var value = _v0.value;
+				return A2(
+					$elm$html$Html$div,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text(
+							A2($elm$core$Maybe$withDefault, '', groupLabel) + (': ' + $elm$core$String$fromFloat(value)))
+						]));
+			},
+			A2(
+				$elm$core$Maybe$withDefault,
+				_List_Nil,
+				A2(
+					$elm$core$Maybe$map,
+					A2(
+						$elm$core$Basics$composeR,
+						$elm$core$Tuple$first,
+						A2(
+							$elm$core$Basics$composeR,
+							function ($) {
+								return $.selection;
+							},
+							function ($) {
+								return $.y;
+							})),
+					annotation)));
+		var year = A2(
+			$elm$core$Maybe$withDefault,
+			'',
+			A2(
+				$elm$core$Maybe$map,
+				A2(
+					$elm$core$Basics$composeR,
+					$elm$core$Tuple$first,
+					A2(
+						$elm$core$Basics$composeR,
+						function ($) {
+							return $.selection;
+						},
+						A2(
+							$elm$core$Basics$composeR,
+							function ($) {
+								return $.x;
+							},
+							$elm$core$String$fromFloat))),
+				annotation));
+		return A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'margin', '0'),
+					A2($elm$html$Html$Attributes$style, 'padding', '5px'),
+					A2($elm$html$Html$Attributes$style, 'font-size', '14px'),
+					A2($elm$html$Html$Attributes$style, 'border', '1px #aaa solid'),
+					A2($elm$html$Html$Attributes$style, 'position', 'absolute'),
+					A2($elm$html$Html$Attributes$style, 'bottom', bottom),
+					A2($elm$html$Html$Attributes$style, 'left', left),
+					A2($elm$html$Html$Attributes$style, 'background', 'white'),
+					A2($elm$html$Html$Attributes$style, 'opacity', '90%'),
+					A2($elm$html$Html$Attributes$style, 'width', '130px'),
+					A2($elm$html$Html$Attributes$style, 'display', display)
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$ul,
+					_List_Nil,
+					A2(
+						$elm$core$List$cons,
+						A2(
+							$elm$html$Html$li,
+							_List_Nil,
+							_List_fromArray(
+								[
+									$elm$html$Html$text(year)
+								])),
+						values))
+				]));
+	});
 var $data_viz_lab$elm_chart_builder$Chart$Line$withColorPalette = F2(
 	function (palette, config) {
 		return A2(
@@ -17641,6 +17796,29 @@ var $data_viz_lab$elm_chart_builder$Chart$Line$withColorPalette = F2(
 			$data_viz_lab$elm_chart_builder$Chart$Internal$Type$ColorPalette(palette),
 			config);
 	});
+var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$HoverOne = function (a) {
+	return {$: 'HoverOne', a: a};
+};
+var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$addEvent = F2(
+	function (event, _v0) {
+		var c = _v0.a;
+		var updatedEvents = A2($elm$core$List$cons, event, c.events);
+		return $data_viz_lab$elm_chart_builder$Chart$Internal$Type$toConfig(
+			_Utils_update(
+				c,
+				{events: updatedEvents}));
+	});
+var $data_viz_lab$elm_chart_builder$Chart$Line$withEvent = function (event) {
+	if (event.$ === 'HoverOne') {
+		var msg = event.a;
+		return $data_viz_lab$elm_chart_builder$Chart$Internal$Type$addEvent(
+			$data_viz_lab$elm_chart_builder$Chart$Internal$Event$HoverOne(msg));
+	} else {
+		var msg = event.a;
+		return $data_viz_lab$elm_chart_builder$Chart$Internal$Type$addEvent(
+			$data_viz_lab$elm_chart_builder$Chart$Internal$Event$HoverAll(msg));
+	}
+};
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$XGroupLabel = {$: 'XGroupLabel'};
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$showXGroupLabel = function (_v0) {
 	var c = _v0.a;
@@ -17660,6 +17838,30 @@ var $data_viz_lab$elm_chart_builder$Chart$Line$withLineStyle = F2(
 	function (styles, config) {
 		return A2($data_viz_lab$elm_chart_builder$Chart$Internal$Type$setCoreStyles, styles, config);
 	});
+var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$AnnotationPointHint = function (a) {
+	return {$: 'AnnotationPointHint', a: a};
+};
+var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$setAnnotiation = F2(
+	function (annotation, _v0) {
+		var c = _v0.a;
+		var a = A2($elm$core$List$cons, annotation, c.annotations);
+		return $data_viz_lab$elm_chart_builder$Chart$Internal$Type$toConfig(
+			_Utils_update(
+				c,
+				{annotations: a}));
+	});
+var $data_viz_lab$elm_chart_builder$Chart$Line$withPointAnnotation = F2(
+	function (annotation, config) {
+		if (annotation.$ === 'Just') {
+			var a = annotation.a;
+			return A2(
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Type$setAnnotiation,
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Type$AnnotationPointHint(a),
+				config);
+		} else {
+			return config;
+		}
+	});
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$setIcons = F2(
 	function (all, _v0) {
 		var c = _v0.a;
@@ -17669,6 +17871,21 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$setIcons = F2(
 				{symbols: all}));
 	});
 var $data_viz_lab$elm_chart_builder$Chart$Line$withSymbols = $data_viz_lab$elm_chart_builder$Chart$Internal$Type$setIcons;
+var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$AnnotationXBarHint = function (a) {
+	return {$: 'AnnotationXBarHint', a: a};
+};
+var $data_viz_lab$elm_chart_builder$Chart$Line$withVLineAnnotation = F2(
+	function (annotation, config) {
+		if (annotation.$ === 'Just') {
+			var a = annotation.a;
+			return A2(
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Type$setAnnotiation,
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Type$AnnotationXBarHint(a),
+				config);
+		} else {
+			return config;
+		}
+	});
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$setXAxisContinuous = F2(
 	function (orientation, _v0) {
 		var c = _v0.a;
@@ -17707,49 +17924,104 @@ var $author$project$Line$yAxis = $data_viz_lab$elm_chart_builder$Chart$Line$axis
 		$elm$core$List$cons,
 		$gampleman$elm_visualization$Axis$tickCount(4),
 		$author$project$Line$sharedAttributes));
-var $author$project$Line$verticalGrouped = function (width) {
-	return A2(
-		$data_viz_lab$elm_chart_builder$Chart$Line$render,
-		_Utils_Tuple2($author$project$Data$citiesTimeline, $author$project$Line$accessor),
-		A2(
-			$data_viz_lab$elm_chart_builder$Chart$Line$withXAxisCont,
-			$author$project$Line$xAxis,
-			A2(
-				$data_viz_lab$elm_chart_builder$Chart$Line$withYAxis,
-				$author$project$Line$yAxis,
-				A2(
-					$data_viz_lab$elm_chart_builder$Chart$Line$withLineStyle,
-					_List_fromArray(
-						[
-							_Utils_Tuple2('stroke-width', '2')
-						]),
+var $author$project$Line$chart = F2(
+	function (width, model) {
+		return A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'position', 'relative')
+				]),
+			_List_fromArray(
+				[
 					A2(
-						$data_viz_lab$elm_chart_builder$Chart$Line$withSymbols,
-						_List_fromArray(
-							[$author$project$Line$circle]),
+					$data_viz_lab$elm_chart_builder$Chart$Line$render,
+					_Utils_Tuple2($author$project$Data$citiesTimeline, $author$project$Line$accessor),
+					A2(
+						$data_viz_lab$elm_chart_builder$Chart$Line$withXAxisCont,
+						$author$project$Line$xAxis,
 						A2(
-							$data_viz_lab$elm_chart_builder$Chart$Line$withLabels,
-							$data_viz_lab$elm_chart_builder$Chart$Line$xGroupLabel,
+							$data_viz_lab$elm_chart_builder$Chart$Line$withYAxis,
+							$author$project$Line$yAxis,
 							A2(
-								$data_viz_lab$elm_chart_builder$Chart$Line$withColorPalette,
-								$author$project$Line$colorScheme,
-								$data_viz_lab$elm_chart_builder$Chart$Line$init(
-									{
-										height: $author$project$Helpers$toChartHeight(
-											$author$project$Helpers$toChartWidth(width)),
-										margin: $author$project$Helpers$marginWithLabel,
-										width: $author$project$Helpers$toChartWidth(width)
-									}))))))));
-};
-var $author$project$Line$view = function (_v0) {
-	var width = _v0.width;
-	return _List_fromArray(
+								$data_viz_lab$elm_chart_builder$Chart$Line$withLineStyle,
+								_List_fromArray(
+									[
+										_Utils_Tuple2('stroke-width', '2')
+									]),
+								A2(
+									$data_viz_lab$elm_chart_builder$Chart$Line$withSymbols,
+									_List_fromArray(
+										[$author$project$Line$circle]),
+									A2(
+										$data_viz_lab$elm_chart_builder$Chart$Line$withLabels,
+										$data_viz_lab$elm_chart_builder$Chart$Line$xGroupLabel,
+										A2(
+											$data_viz_lab$elm_chart_builder$Chart$Line$withVLineAnnotation,
+											model.vLineAnnotation,
+											A2(
+												$data_viz_lab$elm_chart_builder$Chart$Line$withPointAnnotation,
+												model.pointAnnotation,
+												A2(
+													$data_viz_lab$elm_chart_builder$Chart$Line$withEvent,
+													$data_viz_lab$elm_chart_builder$Chart$Line$hoverAll($author$project$Line$Hint),
+													A2(
+														$data_viz_lab$elm_chart_builder$Chart$Line$withColorPalette,
+														$author$project$Line$colorScheme,
+														$data_viz_lab$elm_chart_builder$Chart$Line$init(
+															{
+																height: $author$project$Helpers$toChartHeight(
+																	$author$project$Helpers$toChartWidth(width)),
+																margin: $author$project$Helpers$marginWithLabel,
+																width: $author$project$Helpers$toChartWidth(width)
+															}))))))))))),
+					A2($author$project$Line$tooltip, width, model)
+				]));
+	});
+var $author$project$CodePrev$codePrevLine = ' \ntype alias CityTimeline =\n    { name : String\n    , population : Float\n    , year : Float\n    }\n\naccessor : Line.Accessor Data.ContinuousData\naccessor =\n    Line.cont\n        { xGroup = .name >> Just\n        , xValue = .year\n        , yValue = .population\n        }\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Line.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Line.withColorPalette colorScheme\n        |> Line.withLabels Line.xGroupLabel\n        |> Line.withSymbols [ circle ]\n        |> Line.withLineStyle [ ( "stroke-width", "2" ) ]\n        |> Line.withYAxis yAxis\n        |> Line.withXAxisCont xAxis\n        |> Line.render ( Data.citiesTimeline, accessor )\n        ';
+var $author$project$Line$desc = A2(
+	$elm$html$Html$section,
+	_List_fromArray(
 		[
-			$author$project$Line$desc,
-			$author$project$Line$verticalGrouped(width),
-			$author$project$CodePrev$codePrev($author$project$CodePrev$codePrevLine)
-		]);
-};
+			$elm$html$Html$Attributes$class('example__desc')
+		]),
+	_List_fromArray(
+		[
+			A2(
+			$elm$html$Html$h3,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Continuous line chart with dots, labels and tooltip')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Population in millions')
+				])),
+			A2(
+			$elm$html$Html$a,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$href('https://github.com/data-viz-lab/homepage/blob/main/src/Line.elm')
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('source code')
+				]))
+		]));
+var $author$project$Line$view = F2(
+	function (_v0, model) {
+		var width = _v0.width;
+		return _List_fromArray(
+			[
+				$author$project$Line$desc,
+				A2($author$project$Line$chart, width, model),
+				$author$project$CodePrev$codePrev($author$project$CodePrev$codePrevLine)
+			]);
+	});
 var $author$project$LineAnimated$accessor = $data_viz_lab$elm_chart_builder$Chart$Line$cont(
 	{
 		xGroup: A2(
@@ -17968,7 +18240,10 @@ var $author$project$Main$view = function (model) {
 				model),
 				A2(
 				$author$project$Main$exampleView,
-				$author$project$Line$view(model),
+				A2(
+					$elm$core$List$map,
+					$elm$html$Html$map($author$project$Main$LineMsg),
+					A2($author$project$Line$view, model, model.line)),
 				model),
 				A2(
 				$author$project$Main$exampleView,

@@ -82,6 +82,9 @@ verticalGrouped width =
         , height = height
         }
         |> Line.withColorPalette colorScheme
+        |> Line.withEvent (Line.hoverAll Hint)
+        |> Line.withPointAnnotation model.pointAnnotation
+        |> Line.withVLineAnnotation model.vLineAnnotation
         |> Line.withLabels Line.xGroupLabel
         |> Line.withSymbols [ circle ]
         |> Line.withLineStyle [ ( "stroke-width", "2" ) ]

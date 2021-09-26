@@ -19,6 +19,7 @@ type alias Model =
     { width : Int
     , height : Int
     , lineAnimated : LineAnimated.Model
+    , line : Line.Model
     }
 
 
@@ -29,6 +30,7 @@ type alias Model =
 type Msg
     = NoOp
     | LineAnimatedMsg LineAnimated.Msg
+    | LineMsg Line.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -45,6 +47,14 @@ update msg model =
                         )
                    )
 
+        LineMsg subMsg ->
+            Line.update subMsg model.line
+                |> (\( subModel, subCmd ) ->
+                        ( { model | line = subModel }
+                        , Cmd.map LineMsg subCmd
+                        )
+                   )
+
 
 
 -- VIEW
@@ -55,7 +65,7 @@ view model =
     Html.div [ Attributes.class "content" ]
         [ introView model
         , exampleView (LineAnimated.view model model.lineAnimated) model
-        , exampleView (Line.view model) model
+        , exampleView (Line.view model model.line |> List.map (Html.map LineMsg)) model
         , exampleView (BarStacked.view model) model
         , exampleView (Bar.view model) model
         , footer
@@ -65,7 +75,11 @@ view model =
 introView : Model -> Html Msg
 introView model =
     Html.section [ Attributes.class "intro" ]
-        [ Html.h1 [] [ Html.text "elm-chart-builder" ]
+        [ Html.h1 []
+            [ Html.a
+                [ Attributes.href "https://github.com/data-viz-lab/elm-chart-builder" ]
+                [ Html.text "elm-chart-builder" ]
+            ]
         , Html.h2 [] [ Html.text "Accessible and easy to create charts in elm" ]
         ]
 
@@ -114,6 +128,7 @@ init { width, height } =
     ( { width = width
       , height = height
       , lineAnimated = LineAnimated.initialModel
+      , line = Line.initialModel
       }
     , Cmd.map LineAnimatedMsg (Task.perform identity (Task.succeed LineAnimated.StartAnimation))
     )
