@@ -154,7 +154,7 @@ desc =
         [ Html.h3 [] [ Html.text "Continuous line chart with dots, labels and tooltip" ]
         , Html.p [] [ Html.text "Population in millions" ]
         , Html.a [ Attributes.href "https://github.com/data-viz-lab/homepage/blob/main/src/Line.elm" ]
-            [ Html.text "source code" ]
+            [ Html.text "source" ]
         ]
 
 

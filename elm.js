@@ -5352,6 +5352,7 @@ var $elm$core$List$filter = F2(
 	});
 var $author$project$LineAnimated$initialModel = {
 	allData: $author$project$Data$citiesTimeline,
+	animationIsComplete: true,
 	currentIdx: 0,
 	currentYear: 1950,
 	data: A2(
@@ -5900,7 +5901,7 @@ var $gampleman$elm_visualization$Transition$step = F2(
 			easeing,
 			interp);
 	});
-var $author$project$LineAnimated$transitionSpeed = 500;
+var $author$project$LineAnimated$transitionSpeed = 400;
 var $author$project$LineAnimated$transitionStep = $author$project$LineAnimated$transitionSpeed;
 var $gampleman$elm_visualization$Transition$value = function (_v0) {
 	var soFar = _v0.a;
@@ -5921,65 +5922,75 @@ var $elm$core$Maybe$withDefault = F2(
 	});
 var $author$project$LineAnimated$update = F2(
 	function (msg, model) {
-		if (msg.$ === 'Tick') {
-			var tick = msg.a;
-			var newData = _Utils_ap(
-				model.data,
-				$gampleman$elm_visualization$Transition$value(model.transition));
-			return _Utils_Tuple2(
-				_Utils_update(
-					model,
-					{
-						data: newData,
-						transition: A2($gampleman$elm_visualization$Transition$step, tick, model.transition)
-					}),
-				$elm$core$Platform$Cmd$none);
-		} else {
-			var nextIdx = model.currentIdx + 1;
-			var nextYear = A2(
-				$elm$core$Maybe$withDefault,
-				0,
-				A2($elm$core$Array$get, nextIdx, $author$project$LineAnimated$years));
-			var to = A2(
-				$elm$core$List$filter,
-				function (s) {
-					return _Utils_eq(s.year, nextYear);
-				},
-				model.allData);
-			var from = A2(
-				$elm$core$List$filter,
-				function (s) {
-					return _Utils_eq(s.year, model.currentYear);
-				},
-				model.allData);
-			var transition = A3(
-				$gampleman$elm_visualization$Transition$easeFor,
-				$author$project$LineAnimated$transitionSpeed,
-				$gampleman$elm_visualization$Transition$easeLinear,
-				A2($author$project$LineAnimated$interpolateValues, from, to));
-			return _Utils_Tuple2(
-				_Utils_update(
-					model,
-					{
-						currentIdx: nextIdx,
-						currentYear: nextYear,
-						data: A2(
-							$elm$core$List$filter,
-							function (s) {
-								return _Utils_cmp(s.year, model.currentYear) < 1;
+		switch (msg.$) {
+			case 'Tick':
+				var tick = msg.a;
+				var newData = _Utils_ap(
+					model.data,
+					$gampleman$elm_visualization$Transition$value(model.transition));
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							data: newData,
+							transition: A2($gampleman$elm_visualization$Transition$step, tick, model.transition)
+						}),
+					$elm$core$Platform$Cmd$none);
+			case 'StartAnimation':
+				var nextIdx = model.currentIdx + 1;
+				var nextYear = A2(
+					$elm$core$Maybe$withDefault,
+					0,
+					A2($elm$core$Array$get, nextIdx, $author$project$LineAnimated$years));
+				var to = A2(
+					$elm$core$List$filter,
+					function (s) {
+						return _Utils_eq(s.year, nextYear);
+					},
+					model.allData);
+				var isComplete = (_Utils_cmp(nextIdx, $author$project$LineAnimated$lastIdx) < 1) ? false : true;
+				var from = A2(
+					$elm$core$List$filter,
+					function (s) {
+						return _Utils_eq(s.year, model.currentYear);
+					},
+					model.allData);
+				var transition = A3(
+					$gampleman$elm_visualization$Transition$easeFor,
+					$author$project$LineAnimated$transitionSpeed,
+					$gampleman$elm_visualization$Transition$easeLinear,
+					A2($author$project$LineAnimated$interpolateValues, from, to));
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							animationIsComplete: isComplete,
+							currentIdx: nextIdx,
+							currentYear: nextYear,
+							data: A2(
+								$elm$core$List$filter,
+								function (s) {
+									return _Utils_cmp(s.year, model.currentYear) < 1;
+								},
+								model.allData),
+							transition: transition
+						}),
+					(_Utils_cmp(nextIdx, $author$project$LineAnimated$lastIdx) < 1) ? A2(
+						$elm$core$Task$perform,
+						$elm$core$Basics$identity,
+						A2(
+							$elm$core$Task$andThen,
+							function (_v1) {
+								return $elm$core$Task$succeed($author$project$LineAnimated$StartAnimation);
 							},
-							model.allData),
-						transition: transition
-					}),
-				(_Utils_cmp(nextIdx, $author$project$LineAnimated$lastIdx) < 1) ? A2(
-					$elm$core$Task$perform,
-					$elm$core$Basics$identity,
+							$elm$core$Process$sleep($author$project$LineAnimated$transitionStep))) : $elm$core$Platform$Cmd$none);
+			default:
+				return _Utils_Tuple2(
+					$author$project$LineAnimated$initialModel,
 					A2(
-						$elm$core$Task$andThen,
-						function (_v1) {
-							return $elm$core$Task$succeed($author$project$LineAnimated$StartAnimation);
-						},
-						$elm$core$Process$sleep($author$project$LineAnimated$transitionStep))) : $elm$core$Platform$Cmd$none);
+						$elm$core$Task$perform,
+						$elm$core$Basics$identity,
+						$elm$core$Task$succeed($author$project$LineAnimated$StartAnimation)));
 		}
 	});
 var $author$project$Main$update = F2(
@@ -11680,7 +11691,7 @@ var $author$project$BarStacked$desc = A2(
 				]),
 			_List_fromArray(
 				[
-					$elm$html$Html$text('source code')
+					$elm$html$Html$text('source')
 				]))
 		]));
 var $author$project$BarStacked$accessor = A3(
@@ -18013,7 +18024,7 @@ var $author$project$Line$desc = A2(
 				]),
 			_List_fromArray(
 				[
-					$elm$html$Html$text('source code')
+					$elm$html$Html$text('source')
 				]))
 		]));
 var $author$project$Line$view = F2(
@@ -18185,45 +18196,73 @@ var $author$project$LineAnimated$chart = F2(
 												}))))))))));
 	});
 var $author$project$CodePrev$codePrevLineAnimated = ' \ntype alias CityTimeline =\n    { name : String\n    , population : Float\n    , year : Float\n    }\n\naccessor : Line.Accessor Data.ContinuousData\naccessor =\n    Line.cont\n        { xGroup = .name >> Just\n        , xValue = .year\n        , yValue = .population\n        }\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Line.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Line.withColorPalette Scale.Color.tableau10\n        |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]\n        |> Line.withXAxisCont xAxis\n        |> Line.withYAxis yAxis\n        |> Line.withLabels Line.xGroupLabel\n        |> Line.withXContDomain xDomain\n        |> Line.withYDomain yDomain\n        -- for performance\n        |> Line.withoutTable\n        |> Line.render ( model.data, accessor )\n        ';
-var $author$project$LineAnimated$desc = A2(
-	$elm$html$Html$section,
-	_List_fromArray(
-		[
-			$elm$html$Html$Attributes$class('example__desc')
-		]),
-	_List_fromArray(
-		[
-			A2(
-			$elm$html$Html$h3,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$elm$html$Html$text('Continuous animated line chart with labels')
-				])),
-			A2(
-			$elm$html$Html$p,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$elm$html$Html$text('Population in millions')
-				])),
-			A2(
-			$elm$html$Html$a,
-			_List_fromArray(
-				[
-					$elm$html$Html$Attributes$href('https://github.com/data-viz-lab/homepage/blob/main/src/LineAnimated.elm')
-				]),
-			_List_fromArray(
-				[
-					$elm$html$Html$text('source code')
-				]))
-		]));
+var $author$project$LineAnimated$InitAnimation = {$: 'InitAnimation'};
+var $elm$html$Html$button = _VirtualDom_node('button');
+var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $author$project$LineAnimated$desc = function (model) {
+	return A2(
+		$elm$html$Html$section,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('example__desc')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$h3,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Continuous animated line chart with labels')
+					])),
+				A2(
+				$elm$html$Html$p,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Population in millions')
+					])),
+				A2(
+				$elm$html$Html$p,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$button,
+						_List_fromArray(
+							[
+								$elm$html$Html$Events$onClick($author$project$LineAnimated$InitAnimation),
+								$elm$html$Html$Attributes$disabled(!model.animationIsComplete)
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Start animation')
+							]))
+					])),
+				A2(
+				$elm$html$Html$a,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$href('https://github.com/data-viz-lab/homepage/blob/main/src/LineAnimated.elm')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('source')
+					]))
+			]));
+};
 var $author$project$LineAnimated$view = F2(
 	function (_v0, model) {
 		var width = _v0.width;
 		return _List_fromArray(
 			[
-				$author$project$LineAnimated$desc,
+				$author$project$LineAnimated$desc(model),
 				A2($author$project$LineAnimated$chart, width, model),
 				$author$project$CodePrev$codePrev($author$project$CodePrev$codePrevLineAnimated)
 			]);
@@ -18240,7 +18279,10 @@ var $author$project$Main$view = function (model) {
 				$author$project$Main$introView(model),
 				A2(
 				$author$project$Main$exampleView,
-				A2($author$project$LineAnimated$view, model, model.lineAnimated),
+				A2(
+					$elm$core$List$map,
+					$elm$html$Html$map($author$project$Main$LineAnimatedMsg),
+					A2($author$project$LineAnimated$view, model, model.lineAnimated)),
 				model),
 				A2(
 				$author$project$Main$exampleView,

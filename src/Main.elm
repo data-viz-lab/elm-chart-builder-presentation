@@ -64,7 +64,7 @@ view : Model -> Html Msg
 view model =
     Html.div [ Attributes.class "content" ]
         [ introView model
-        , exampleView (LineAnimated.view model model.lineAnimated) model
+        , exampleView (LineAnimated.view model model.lineAnimated |> List.map (Html.map LineAnimatedMsg)) model
         , exampleView (Line.view model model.line |> List.map (Html.map LineMsg)) model
         , exampleView (BarStacked.view model) model
         , exampleView (Bar.view model) model

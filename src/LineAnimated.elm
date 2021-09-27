@@ -50,6 +50,7 @@ type alias Model =
     { transition : Transition Data
     , currentIdx : Int
     , currentYear : Float
+    , animationIsComplete : Bool
 
     --data up to prev transition
     , data : Data
@@ -64,10 +65,11 @@ type alias Model =
 type Msg
     = Tick Int
     | StartAnimation
+    | InitAnimation
 
 
 transitionSpeed =
-    500
+    400
 
 
 transitionStep =
@@ -110,11 +112,19 @@ update msg model =
 
                 transition =
                     Transition.easeFor transitionSpeed Transition.easeLinear (interpolateValues from to)
+
+                isComplete =
+                    if nextIdx <= lastIdx then
+                        False
+
+                    else
+                        True
             in
             ( { model
                 | transition = transition
                 , currentYear = nextYear
                 , currentIdx = nextIdx
+                , animationIsComplete = isComplete
                 , data =
                     model.allData
                         |> List.filter (\s -> s.year <= model.currentYear)
@@ -126,6 +136,11 @@ update msg model =
 
               else
                 Cmd.none
+            )
+
+        InitAnimation ->
+            ( initialModel
+            , Task.perform identity (Task.succeed StartAnimation)
             )
 
 
@@ -226,19 +241,26 @@ chart width model =
 -- VIEW
 
 
-desc : Html msg
-desc =
+desc : Model -> Html Msg
+desc model =
     Html.section [ Attributes.class "example__desc" ]
         [ Html.h3 [] [ Html.text "Continuous animated line chart with labels" ]
         , Html.p [] [ Html.text "Population in millions" ]
+        , Html.p []
+            [ Html.button
+                [ Events.onClick InitAnimation
+                , Attributes.disabled (not <| model.animationIsComplete)
+                ]
+                [ Html.text "Start animation" ]
+            ]
         , Html.a [ Attributes.href "https://github.com/data-viz-lab/homepage/blob/main/src/LineAnimated.elm" ]
-            [ Html.text "source code" ]
+            [ Html.text "source" ]
         ]
 
 
-view : { a | width : Int } -> Model -> List (Html msg)
+view : { a | width : Int } -> Model -> List (Html Msg)
 view { width } model =
-    [ desc
+    [ desc model
     , chart width model
     , CodePrev.codePrev CodePrev.codePrevLineAnimated
     ]
@@ -282,6 +304,7 @@ initialModel =
     { transition = Transition.constant <| []
     , currentYear = 1950
     , currentIdx = 0
+    , animationIsComplete = True
     , data =
         Data.citiesTimeline
             |> List.filter (.year >> (==) 1950)
