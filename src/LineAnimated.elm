@@ -211,7 +211,7 @@ chart width model =
                 |> Helpers.toChartHeight
         }
         |> Line.withColorPalette Scale.Color.tableau10
-        |> Line.withLineStyle [ ( "stroke-width", "2" ) ]
+        |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]
         |> Line.withXAxisCont xAxis
         |> Line.withYAxis yAxis
         |> Line.withLabels Line.xGroupLabel

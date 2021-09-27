@@ -13,8 +13,8 @@ import Html.Attributes as Attributes
 codePrev : String -> Html msg
 codePrev content =
     Html.div [ Attributes.class "example__code-prev" ]
-        [ Html.code [ Attributes.class "terminal" ]
-            [ Html.pre []
+        [ Html.pre [ Attributes.class "terminal" ]
+            [ Html.code [ Attributes.class "language-elm" ]
                 [ Html.text content ]
             ]
         ]
@@ -45,7 +45,7 @@ verticalGrouped width =
         , height = height
         }
         |> Line.withColorPalette Scale.Color.tableau10
-        |> Line.withLineStyle [ ( "stroke-width", "2" ) ]
+        |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]
         |> Line.withXAxisCont xAxis
         |> Line.withYAxis yAxis
         |> Line.withLabels Line.xGroupLabel
@@ -87,7 +87,7 @@ verticalGrouped width =
         |> Line.withVLineAnnotation model.vLineAnnotation
         |> Line.withLabels Line.xGroupLabel
         |> Line.withSymbols [ circle ]
-        |> Line.withLineStyle [ ( "stroke-width", "2" ) ]
+        |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]
         |> Line.withYAxis yAxis
         |> Line.withXAxisCont xAxis
         |> Line.render ( Data.citiesTimeline, accessor )

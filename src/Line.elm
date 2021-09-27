@@ -140,7 +140,7 @@ chart width model =
             |> Line.withVLineAnnotation model.vLineAnnotation
             |> Line.withLabels Line.xGroupLabel
             |> Line.withSymbols [ circle ]
-            |> Line.withLineStyle [ ( "stroke-width", "2" ) ]
+            |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]
             |> Line.withYAxis yAxis
             |> Line.withXAxisCont xAxis
             |> Line.render ( Data.citiesTimeline, accessor )

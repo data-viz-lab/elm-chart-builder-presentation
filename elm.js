@@ -6023,13 +6023,14 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $author$project$Helpers$exampleViewMoltiplier = 1.4;
 var $elm$core$String$fromFloat = _String_fromNumber;
 var $elm$html$Html$section = _VirtualDom_node('section');
 var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
 var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
-var $author$project$Helpers$goldenRatio = 1.618;
+var $author$project$Helpers$chartRatio = 1.7;
 var $author$project$Helpers$toChartHeight = function (width) {
-	return $elm$core$Basics$round(width / $author$project$Helpers$goldenRatio);
+	return $elm$core$Basics$round(width / $author$project$Helpers$chartRatio);
 };
 var $author$project$Helpers$maxPageWidth = 1800;
 var $author$project$Helpers$toChartWidth = function (pageWidth) {
@@ -6039,7 +6040,7 @@ var $author$project$Helpers$toChartWidth = function (pageWidth) {
 var $author$project$Main$exampleView = F2(
 	function (content, model) {
 		var height = $elm$core$String$fromFloat(
-			1.2 * $author$project$Helpers$toChartHeight(
+			$author$project$Helpers$exampleViewMoltiplier * $author$project$Helpers$toChartHeight(
 				$author$project$Helpers$toChartWidth(model.width)));
 		return A2(
 			$elm$html$Html$section,
@@ -6124,7 +6125,7 @@ var $author$project$CodePrev$codePrev = function (content) {
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$code,
+				$elm$html$Html$pre,
 				_List_fromArray(
 					[
 						$elm$html$Html$Attributes$class('terminal')
@@ -6132,8 +6133,11 @@ var $author$project$CodePrev$codePrev = function (content) {
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$pre,
-						_List_Nil,
+						$elm$html$Html$code,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('language-elm')
+							]),
 						_List_fromArray(
 							[
 								$elm$html$Html$text(content)
@@ -17947,7 +17951,7 @@ var $author$project$Line$chart = F2(
 								$data_viz_lab$elm_chart_builder$Chart$Line$withLineStyle,
 								_List_fromArray(
 									[
-										_Utils_Tuple2('stroke-width', '2')
+										_Utils_Tuple2('stroke-width', '2.5')
 									]),
 								A2(
 									$data_viz_lab$elm_chart_builder$Chart$Line$withSymbols,
@@ -17978,7 +17982,7 @@ var $author$project$Line$chart = F2(
 					A2($author$project$Line$tooltip, width, model)
 				]));
 	});
-var $author$project$CodePrev$codePrevLine = ' \ntype alias CityTimeline =\n    { name : String\n    , population : Float\n    , year : Float\n    }\n\naccessor : Line.Accessor Data.ContinuousData\naccessor =\n    Line.cont\n        { xGroup = .name >> Just\n        , xValue = .year\n        , yValue = .population\n        }\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Line.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Line.withColorPalette colorScheme\n        |> Line.withLabels Line.xGroupLabel\n        |> Line.withSymbols [ circle ]\n        |> Line.withLineStyle [ ( "stroke-width", "2" ) ]\n        |> Line.withYAxis yAxis\n        |> Line.withXAxisCont xAxis\n        |> Line.render ( Data.citiesTimeline, accessor )\n        ';
+var $author$project$CodePrev$codePrevLine = ' \ntype alias CityTimeline =\n    { name : String\n    , population : Float\n    , year : Float\n    }\n\naccessor : Line.Accessor Data.ContinuousData\naccessor =\n    Line.cont\n        { xGroup = .name >> Just\n        , xValue = .year\n        , yValue = .population\n        }\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Line.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Line.withColorPalette colorScheme\n        |> Line.withEvent (Line.hoverAll Hint)\n        |> Line.withPointAnnotation model.pointAnnotation\n        |> Line.withVLineAnnotation model.vLineAnnotation\n        |> Line.withLabels Line.xGroupLabel\n        |> Line.withSymbols [ circle ]\n        |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]\n        |> Line.withYAxis yAxis\n        |> Line.withXAxisCont xAxis\n        |> Line.render ( Data.citiesTimeline, accessor )\n        ';
 var $author$project$Line$desc = A2(
 	$elm$html$Html$section,
 	_List_fromArray(
@@ -18167,7 +18171,7 @@ var $author$project$LineAnimated$chart = F2(
 										$data_viz_lab$elm_chart_builder$Chart$Line$withLineStyle,
 										_List_fromArray(
 											[
-												_Utils_Tuple2('stroke-width', '2')
+												_Utils_Tuple2('stroke-width', '2.5')
 											]),
 										A2(
 											$data_viz_lab$elm_chart_builder$Chart$Line$withColorPalette,
@@ -18180,7 +18184,7 @@ var $author$project$LineAnimated$chart = F2(
 													width: $author$project$Helpers$toChartWidth(width)
 												}))))))))));
 	});
-var $author$project$CodePrev$codePrevLineAnimated = ' \ntype alias CityTimeline =\n    { name : String\n    , population : Float\n    , year : Float\n    }\n\naccessor : Line.Accessor Data.ContinuousData\naccessor =\n    Line.cont\n        { xGroup = .name >> Just\n        , xValue = .year\n        , yValue = .population\n        }\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Line.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Line.withColorPalette Scale.Color.tableau10\n        |> Line.withLineStyle [ ( "stroke-width", "2" ) ]\n        |> Line.withXAxisCont xAxis\n        |> Line.withYAxis yAxis\n        |> Line.withLabels Line.xGroupLabel\n        |> Line.withXContDomain xDomain\n        |> Line.withYDomain yDomain\n        -- for performance\n        |> Line.withoutTable\n        |> Line.render ( model.data, accessor )\n        ';
+var $author$project$CodePrev$codePrevLineAnimated = ' \ntype alias CityTimeline =\n    { name : String\n    , population : Float\n    , year : Float\n    }\n\naccessor : Line.Accessor Data.ContinuousData\naccessor =\n    Line.cont\n        { xGroup = .name >> Just\n        , xValue = .year\n        , yValue = .population\n        }\n\nverticalGrouped : Int -> Html msg\nverticalGrouped width =\n    Line.init\n        { margin = margin\n        , width = width\n        , height = height\n        }\n        |> Line.withColorPalette Scale.Color.tableau10\n        |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]\n        |> Line.withXAxisCont xAxis\n        |> Line.withYAxis yAxis\n        |> Line.withLabels Line.xGroupLabel\n        |> Line.withXContDomain xDomain\n        |> Line.withYDomain yDomain\n        -- for performance\n        |> Line.withoutTable\n        |> Line.render ( model.data, accessor )\n        ';
 var $author$project$LineAnimated$desc = A2(
 	$elm$html$Html$section,
 	_List_fromArray(

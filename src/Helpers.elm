@@ -1,5 +1,6 @@
 module Helpers exposing
-    ( goldenRatio
+    ( chartRatio
+    , exampleViewMoltiplier
     , margin
     , marginWithLabel
     , maxPageWidth
@@ -8,9 +9,14 @@ module Helpers exposing
     )
 
 
-goldenRatio : Float
-goldenRatio =
-    1.618
+chartRatio : Float
+chartRatio =
+    1.7
+
+
+exampleViewMoltiplier : Float
+exampleViewMoltiplier =
+    1.4
 
 
 maxPageWidth : Int
@@ -35,7 +41,7 @@ toChartWidth pageWidth =
 
 toChartHeight : Float -> Float
 toChartHeight width =
-    goldenRatio
+    chartRatio
         |> (/) width
         |> round
         |> toFloat

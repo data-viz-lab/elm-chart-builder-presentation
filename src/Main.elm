@@ -91,7 +91,7 @@ exampleView content model =
             model.width
                 |> Helpers.toChartWidth
                 |> Helpers.toChartHeight
-                |> (*) 1.2
+                |> (*) Helpers.exampleViewMoltiplier
                 |> String.fromFloat
     in
     Html.section
