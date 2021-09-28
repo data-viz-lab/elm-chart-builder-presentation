@@ -66,7 +66,7 @@ desc =
     Html.section [ Attributes.class "example__desc" ]
         [ Html.h3 [] [ Html.text "Grouped vertical bar chart" ]
         , Html.p [] [ Html.text "TODO" ]
-        , Html.a [ Attributes.href "https://github.com/data-viz-lab/homepage/blob/main/src/Bar.elm" ]
+        , Html.a [ Attributes.href "https://github.com/data-viz-lab/elm-chart-builder-presentation/blob/main/src/Bar.elm" ]
             [ Html.text "source" ]
         ]
 

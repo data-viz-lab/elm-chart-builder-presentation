@@ -253,7 +253,7 @@ desc model =
                 ]
                 [ Html.text "Start animation" ]
             ]
-        , Html.a [ Attributes.href "https://github.com/data-viz-lab/homepage/blob/main/src/LineAnimated.elm" ]
+        , Html.a [ Attributes.href "https://github.com/data-viz-lab/elm-chart-builder-presentation/blob/main/src/LineAnimated.elm" ]
             [ Html.text "source" ]
         ]
 

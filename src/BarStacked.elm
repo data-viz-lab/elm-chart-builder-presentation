@@ -85,7 +85,7 @@ desc =
     Html.section [ Attributes.class "example__desc" ]
         [ Html.h3 [] [ Html.text "Stacked vertical bar chart" ]
         , Html.p [] [ Html.text "TODO" ]
-        , Html.a [ Attributes.href "https://github.com/data-viz-lab/homepage/blob/main/src/BarStacked.elm" ]
+        , Html.a [ Attributes.href "https://github.com/data-viz-lab/elm-chart-builder-presentation/blob/main/src/BarStacked.elm" ]
             [ Html.text "source" ]
         ]
 
