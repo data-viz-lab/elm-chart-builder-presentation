@@ -274,7 +274,6 @@ chart width model =
         |> Line.withColorPalette Scale.Color.tableau10
         |> Line.withLineStyle [ ( "stroke-width", "3" ) ]
         |> Line.withXAxisCont xAxis
-        --|> Line.withCurve (Shape.cardinalCurve 0.6)
         |> Line.withYAxis yAxis
         |> Line.withLabels Line.xGroupLabel
         |> Line.withXContDomain model.xDomain

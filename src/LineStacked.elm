@@ -128,7 +128,7 @@ desc =
     Html.section [ Attributes.class "example__desc" ]
         [ Html.h3 [] [ Html.text "Continuous stacked area line chart" ]
         , Html.p [] [ Html.text "Population in millions" ]
-        , Html.a [ Attributes.href "https://github.com/data-viz-lab/elm-chart-builder-presentation/blob/main/src/Line.elm" ]
+        , Html.a [ Attributes.href "https://github.com/data-viz-lab/elm-chart-builder-presentation/blob/main/src/LineStacked.elm" ]
             [ Html.text "source" ]
         ]
 
