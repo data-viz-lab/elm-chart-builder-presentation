@@ -54,4 +54,4 @@ margin =
 
 marginWithLabel : { top : Float, right : Float, left : Float, bottom : Float }
 marginWithLabel =
-    { top = 10, right = 90, bottom = 20, left = 60 }
+    { top = 10, right = 125, bottom = 20, left = 60 }

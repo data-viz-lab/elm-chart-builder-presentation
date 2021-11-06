@@ -10,17 +10,16 @@ module LineAnimated exposing
 {-| This module shows how to build an animated line chart
 -}
 
---import List.Extra
-
 import Array exposing (Array)
 import Axis
 import Browser
 import Browser.Events
 import Chart.Bar as Bar
 import Chart.Line as Line
+import City exposing (City)
 import CodePrev
 import Color
-import Data
+import Csv.Decode as Decode exposing (Decoder)
 import Helpers
 import Html exposing (Html)
 import Html.Attributes as Attributes
@@ -29,6 +28,7 @@ import Interpolation exposing (Interpolator)
 import Process
 import Scale.Color
 import Set exposing (Set)
+import Shape
 import Task
 import Transition exposing (Transition)
 
@@ -38,7 +38,7 @@ import Transition exposing (Transition)
 
 
 type alias Data =
-    List Data.CityTimeline
+    List City
 
 
 type alias Frame =
@@ -55,6 +55,10 @@ type alias Model =
     --data up to prev transition
     , data : Data
     , allData : Data
+    , years : Array Float
+    , lastIdx : Int
+    , yDomain : ( Float, Float )
+    , xDomain : ( Float, Float )
     }
 
 
@@ -66,14 +70,15 @@ type Msg
     = Tick Int
     | StartAnimation
     | InitAnimation
+    | OnData (Result Decode.Error (List City))
 
 
 transitionSpeed =
-    400
+    250
 
 
 transitionStep =
-    transitionSpeed
+    transitionSpeed + 350
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -98,9 +103,9 @@ update msg model =
                         + 1
 
                 nextYear =
-                    years
+                    model.years
                         |> Array.get nextIdx
-                        |> Maybe.withDefault 0
+                        |> Maybe.withDefault model.currentYear
 
                 from =
                     model.allData
@@ -114,7 +119,7 @@ update msg model =
                     Transition.easeFor transitionSpeed Transition.easeLinear (interpolateValues from to)
 
                 isComplete =
-                    if nextIdx <= lastIdx then
+                    if nextIdx <= model.lastIdx then
                         False
 
                     else
@@ -129,7 +134,7 @@ update msg model =
                     model.allData
                         |> List.filter (\s -> s.year <= model.currentYear)
               }
-            , if nextIdx <= lastIdx then
+            , if nextIdx <= model.lastIdx then
                 Process.sleep transitionStep
                     |> Task.andThen (\_ -> Task.succeed StartAnimation)
                     |> Task.perform identity
@@ -139,21 +144,62 @@ update msg model =
             )
 
         InitAnimation ->
-            ( initialModel
+            let
+                m =
+                    { initialModel
+                        | allData = model.allData
+                        , years = model.years
+                        , lastIdx = model.lastIdx
+                        , yDomain = model.yDomain
+                        , xDomain = model.xDomain
+                    }
+            in
+            ( m
             , Task.perform identity (Task.succeed StartAnimation)
             )
+
+        OnData (Ok data) ->
+            let
+                selectedData =
+                    data
+                        |> List.filter
+                            (\d ->
+                                --d.urbanAgglomeration
+                                --    == "Buenos Aires"
+                                --    || d.urbanAgglomeration
+                                --    == "New York"
+                                --    || d.urbanAgglomeration
+                                --    == "London"
+                                d.urbanAgglomeration
+                                    == "Tokyo"
+                                    || d.urbanAgglomeration
+                                    == "Shanghai"
+                            )
+            in
+            ( { model
+                | allData = selectedData
+                , lastIdx = lastIdx selectedData
+                , yDomain = yDomain selectedData
+                , xDomain = xDomain selectedData
+                , years = years selectedData
+              }
+            , Task.perform identity (Task.succeed StartAnimation)
+            )
+
+        OnData (Err err) ->
+            ( model, Cmd.none )
 
 
 interpolateValues : Data -> Data -> Interpolator Data
 interpolateValues from to =
     List.map2
         (\from_ to_ ->
-            interpolateValue ( from_.year, from_.population ) ( to_.year, to_.population )
+            interpolateValue ( from_.year, from_.populationMillions ) ( to_.year, to_.populationMillions )
                 |> Interpolation.map
-                    (\( year, population ) ->
+                    (\( year, populationMillions ) ->
                         { year = year
-                        , population = population
-                        , name = from_.name
+                        , populationMillions = populationMillions
+                        , urbanAgglomeration = from_.urbanAgglomeration
                         }
                     )
         )
@@ -176,12 +222,12 @@ interpolatePosition =
 -- CHART CONFIGURATION
 
 
-accessor : Line.Accessor Data.CityTimeline
+accessor : Line.Accessor City
 accessor =
     Line.cont
-        { xGroup = .name >> Just
+        { xGroup = .urbanAgglomeration >> Just
         , xValue = .year
-        , yValue = .population
+        , yValue = .populationMillions
         }
 
 
@@ -195,7 +241,7 @@ sharedAttributes =
 yAxis : Bar.YAxis Float
 yAxis =
     Line.axisLeft
-        [ Axis.tickCount 3
+        [ Axis.tickCount 6
         , Axis.tickSizeOuter 0
         , Axis.tickSizeInner 3
         ]
@@ -203,7 +249,7 @@ yAxis =
 
 xAxisTicks : List Float
 xAxisTicks =
-    [ 1950, 1960, 1970, 1980, 1990, 2000 ]
+    [ 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2030 ]
 
 
 xAxis : Line.XAxis Float
@@ -226,12 +272,13 @@ chart width model =
                 |> Helpers.toChartHeight
         }
         |> Line.withColorPalette Scale.Color.tableau10
-        |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]
+        |> Line.withLineStyle [ ( "stroke-width", "3" ) ]
         |> Line.withXAxisCont xAxis
+        --|> Line.withCurve (Shape.cardinalCurve 0.6)
         |> Line.withYAxis yAxis
         |> Line.withLabels Line.xGroupLabel
-        |> Line.withXContDomain xDomain
-        |> Line.withYDomain yDomain
+        |> Line.withXContDomain model.xDomain
+        |> Line.withYDomain model.yDomain
         -- for performance
         |> Line.withoutTable
         |> Line.render ( model.data, accessor )
@@ -258,10 +305,15 @@ desc model =
         ]
 
 
+yearView : Float -> Html Msg
+yearView year =
+    Html.h2 [ Attributes.class "year-view" ] [ Html.text (String.fromFloat year) ]
+
+
 view : { a | width : Int } -> Model -> List (Html Msg)
 view { width } model =
     [ desc model
-    , chart width model
+    , Html.div [ Attributes.class "chart-wrapper" ] [ yearView model.currentYear, chart width model ]
     , CodePrev.codePrev CodePrev.codePrevLineAnimated
     ]
 
@@ -270,45 +322,52 @@ view { width } model =
 -- INIT
 
 
-years : Array Float
-years =
-    Data.citiesTimeline
+years : Data -> Array Float
+years data =
+    data
         |> List.map .year
         |> Set.fromList
         |> Set.toList
         |> Array.fromList
 
 
-lastIdx : Int
-lastIdx =
-    years
+lastIdx : Data -> Int
+lastIdx data =
+    years data
         |> (\t -> Array.length t - 1)
 
 
-yDomain : ( Float, Float )
-yDomain =
-    Data.citiesTimeline
-        |> List.map .population
+yDomain : Data -> ( Float, Float )
+yDomain data =
+    data
+        |> List.map .populationMillions
         |> (\p -> ( 0, List.maximum p |> Maybe.withDefault 0 ))
 
 
-xDomain : ( Float, Float )
-xDomain =
-    Data.citiesTimeline
+xDomain : Data -> ( Float, Float )
+xDomain data =
+    data
         |> List.map .year
         |> (\p -> ( List.minimum p |> Maybe.withDefault 0, List.maximum p |> Maybe.withDefault 0 ))
+
+
+initialYear : Float
+initialYear =
+    1950
 
 
 initialModel : Model
 initialModel =
     { transition = Transition.constant <| []
-    , currentYear = 1950
+    , currentYear = initialYear
     , currentIdx = 0
     , animationIsComplete = True
-    , data =
-        Data.citiesTimeline
-            |> List.filter (.year >> (==) 1950)
-    , allData = Data.citiesTimeline
+    , data = []
+    , allData = []
+    , years = Array.empty
+    , lastIdx = 0
+    , yDomain = ( 0, 0 )
+    , xDomain = ( 0, 0 )
     }
 
 

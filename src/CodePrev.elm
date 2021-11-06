@@ -1,6 +1,5 @@
 module CodePrev exposing
     ( codePrev
-    , codePrevBar
     , codePrevBarStacked
     , codePrevLine
     , codePrevLineAnimated
@@ -23,34 +22,28 @@ codePrev content =
 codePrevLineAnimated : String
 codePrevLineAnimated =
     """ 
-type alias CityTimeline =
-    { name : String
-    , population : Float
-    , year : Float
-    }
-
-accessor : Line.Accessor Data.ContinuousData
+accessor : Line.Accessor City
 accessor =
     Line.cont
-        { xGroup = .name >> Just
+        { xGroup = .urbanAgglomeration >> Just
         , xValue = .year
-        , yValue = .population
+        , yValue = .populationMillions
         }
 
-verticalGrouped : Int -> Html msg
-verticalGrouped width =
+chart : Int -> Model -> Html msg
+chart width model =
     Line.init
         { margin = margin
         , width = width
         , height = height
         }
         |> Line.withColorPalette Scale.Color.tableau10
-        |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]
+        |> Line.withLineStyle [ ( "stroke-width", "3" ) ]
         |> Line.withXAxisCont xAxis
         |> Line.withYAxis yAxis
         |> Line.withLabels Line.xGroupLabel
-        |> Line.withXContDomain xDomain
-        |> Line.withYDomain yDomain
+        |> Line.withXContDomain model.xDomain
+        |> Line.withYDomain model.yDomain
         -- for performance
         |> Line.withoutTable
         |> Line.render ( model.data, accessor )
@@ -60,22 +53,16 @@ verticalGrouped width =
 codePrevLine : String
 codePrevLine =
     """ 
-type alias CityTimeline =
-    { name : String
-    , population : Float
-    , year : Float
-    }
-
-accessor : Line.Accessor Data.ContinuousData
+accessor : Line.Accessor City
 accessor =
     Line.cont
-        { xGroup = .name >> Just
+        { xGroup = .urbanAgglomeration >> Just
         , xValue = .year
-        , yValue = .population
+        , yValue = .populationMillions
         }
 
-verticalGrouped : Int -> Html msg
-verticalGrouped width =
+chart : Int -> Model -> Html Msg
+chart width model =
     Line.init
         { margin = margin
         , width = width
@@ -90,25 +77,22 @@ verticalGrouped width =
         |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]
         |> Line.withYAxis yAxis
         |> Line.withXAxisCont xAxis
-        |> Line.render ( Data.citiesTimeline, accessor )
+        |> Line.render ( model.data, accessor )
         """
 
 
 codePrevBarStacked : String
 codePrevBarStacked =
     """ 
-type alias UrbanVsRural =
-    { year : String
-    , population : Float
-    , classification : String
-    }
-
-accessor : Bar.Accessor Data.UrbanVsRural
+accessor : Bar.Accessor City
 accessor =
-    Bar.Accessor (.year >> Just) .classification .population
+    Bar.Accessor 
+        (.year >> String.fromFloat >> Just)
+        .urbanAgglomeration
+        .populationMillions
 
-verticalGrouped : Int -> Html msg
-verticalGrouped width =
+chart : Int -> Model -> Html Msg
+chart width model =
     Bar.init
         { margin = margin
         , width = width
@@ -116,41 +100,10 @@ verticalGrouped width =
         }
         |> Bar.withColorPalette colorScheme
         |> Bar.withBarStyle [ ( "stroke", "#fff" ), ( "stroke-width", "0.5" ) ]
-        |> Bar.withColumnTitle
-            (Bar.yColumnTitle valueFormatter)
+        |> Bar.withColumnTitle (Bar.yColumnTitle valueFormatter)
         |> Bar.withGroupedLayout
         |> Bar.withYAxis yAxis
         |> Bar.withXAxis xAxis
         |> Bar.withStackedLayout Bar.diverging
-        |> Bar.render ( Data.countriesUrbanVsRuralFiveYears, accessor )
-        """
-
-
-codePrevBar : String
-codePrevBar =
-    """ 
-type alias GroupData =
-    { x : String
-    , y : Float
-    , groupLabel : String
-    }
-
-accessor : Bar.Accessor Data.GroupData
-accessor =
-    Bar.Accessor (.groupLabel >> Just) .x .y
-
-verticalGrouped : Int -> Html msg
-verticalGrouped width =
-    Bar.init
-        { margin = margin
-        , width = width
-        , height = height
-        }
-        |> Bar.withColorPalette colorScheme
-        |> Bar.withColumnTitle
-            (Bar.yColumnTitle valueFormatter)
-        |> Bar.withGroupedLayout
-        |> Bar.withYAxis yAxis
-        |> Bar.withXAxis xAxis
-        |> Bar.render ( Data.groupData, accessor )
+        |> Bar.render ( model.data, accessor )
         """

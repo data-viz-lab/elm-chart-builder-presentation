@@ -97,3 +97,28 @@ footer {
   fill: #222;
   font-size: 13px;
 }
+
+.chart-wrapper {
+  position: relative;
+}
+
+.year-view {
+  position: absolute;
+  left: 75px;
+  color: #222;
+  font-size: 26px;
+}
+
+.label-0 {
+  position: absolute;
+  right: 77px;
+  color: #222;
+  font-size: 14px;
+}
+
+.label-1 {
+  position: absolute;
+  right: 50px;
+  color: #222;
+  font-size: 14px;
+}

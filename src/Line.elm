@@ -10,9 +10,10 @@ import Axis
 import Chart.Annotation as Annotation
 import Chart.Line as Line
 import Chart.Symbol as Symbol exposing (Symbol)
+import City exposing (City)
 import CodePrev
 import Color exposing (Color, rgb255)
-import Data
+import Csv.Decode as Decode exposing (Decoder)
 import Helpers
 import Html exposing (Html)
 import Html.Attributes as Attributes
@@ -29,6 +30,7 @@ type alias Model =
     { hinted : Maybe ( Float, Float )
     , pointAnnotation : Maybe Annotation.Hint
     , vLineAnnotation : Maybe Annotation.Hint
+    , data : List City
     }
 
 
@@ -38,6 +40,7 @@ type alias Model =
 
 type Msg
     = Hint (Maybe Line.Hint)
+    | OnData (Result Decode.Error (List City))
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -54,6 +57,25 @@ update msg model =
               }
             , Cmd.none
             )
+
+        OnData (Ok data) ->
+            let
+                selectedData =
+                    data
+                        |> List.filter
+                            (\d ->
+                                d.urbanAgglomeration
+                                    == "Tokyo"
+                                    || d.urbanAgglomeration
+                                    == "Shanghai"
+                            )
+            in
+            ( { model | data = selectedData }
+            , Cmd.none
+            )
+
+        OnData (Err err) ->
+            ( model, Cmd.none )
 
 
 pointAnnotationStyle : List ( String, String )
@@ -82,12 +104,12 @@ circle =
         |> Symbol.withSize 8
 
 
-accessor : Line.Accessor Data.CityTimeline
+accessor : Line.Accessor City
 accessor =
     Line.cont
-        { xGroup = .name >> Just
+        { xGroup = .urbanAgglomeration >> Just
         , xValue = .year
-        , yValue = .population
+        , yValue = .populationMillions
         }
 
 
@@ -110,7 +132,7 @@ yAxis =
 
 xAxisTicks : List Float
 xAxisTicks =
-    [ 1950, 1960, 1970, 1980, 1990, 2000 ]
+    [ 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2030 ]
 
 
 xAxis : Line.XAxis Float
@@ -143,7 +165,7 @@ chart width model =
             |> Line.withLineStyle [ ( "stroke-width", "2.5" ) ]
             |> Line.withYAxis yAxis
             |> Line.withXAxisCont xAxis
-            |> Line.render ( Data.citiesTimeline, accessor )
+            |> Line.render ( model.data, accessor )
         , tooltip width model
         ]
 
@@ -230,6 +252,7 @@ tooltip width model =
                                 )
                             ]
                     )
+                |> List.reverse
     in
     Html.div
         [ Attributes.style "margin" "0"
@@ -256,4 +279,5 @@ initialModel =
     { hinted = Nothing
     , pointAnnotation = Nothing
     , vLineAnnotation = Nothing
+    , data = []
     }

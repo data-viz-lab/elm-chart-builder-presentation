@@ -1,0 +1,559 @@
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+United Nations,,,,,,,,,,
+Population Division,,,,,,,,,,
+Department of Economic and Social Affairs,,,,,,,,,,
+,,,,,,,,,,
+World Urbanization Prospects: The 2018 Revision,,,,,,,,,,
+"File 11a: The 30 Largest Urban Agglomerations Ranked by Population Size at Each Point in Time, 1950-2035",,,,,,,,,,
+,,,,,,,,,,
+POP/DB/WUP/Rev.2018/1/F11a,,,,,,,,,,
+"Copyright © 2018 by United Nations, made available under a Creative Commons license CC BY 3.0 IGO: http://creativecommons.org/licenses/by/3.0/igo/",,,,,,,,,,
+"Suggested citation: United Nations, Department of Economic and Social Affairs, Population Division (2018). World Urbanization Prospects: The 2018 Revision, Online Edition.",,,,,,,,,,
+,,,,,,,,,,
+,,,,,"The 30 Largest Urban Agglomerations Ranked by Population Size at Each Point in Time, 1950-2035",,,,,
+Index,Year,"Rank
+Order","Country
+code",Country or Area,City code,Urban Agglomeration,Note,Latitude,Longitude,Population (millions)
+1,1950,1,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   12
+2,1950,2,392,Japan,21671,Tokyo,1,35.6895,139.6917,   11
+3,1950,3,826,United Kingdom,22860,London,2,51.5085,-0.1257,   8
+4,1950,4,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   7
+5,1950,5,250,France,20985,Paris,,48.8534,2.3488,   6
+6,1950,6,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   5
+7,1950,7,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   5
+8,1950,8,840,United States of America,22956,Chicago,,41.8500,-87.6501,   5
+9,1950,9,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   5
+10,1950,10,156,China,20656,Shanghai,5,31.2222,121.4581,   4
+11,1950,11,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   4
+12,1950,12,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   3
+13,1950,13,276,Germany,204296,Berlin,,52.5244,13.4105,   3
+14,1950,14,840,United States of America,23098,Philadelphia,,39.9523,-75.1638,   3
+15,1950,15,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   3
+16,1950,16,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   3
+17,1950,17,643,Russian Federation,22365,Sankt Peterburg (Saint Petersburg),,59.9299,30.3262,   3
+18,1950,18,840,United States of America,22974,Detroit,,42.3871,-83.1026,   3
+19,1950,19,840,United States of America,22939,Boston,,42.3479,-71.0645,   3
+20,1950,20,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   2
+21,1950,21,156,China,20689,Tianjin,5,39.1088,117.1886,   2
+22,1950,22,826,United Kingdom,22862,Manchester,8,53.4810,-2.2374,   2
+23,1950,23,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   2
+24,1950,24,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   2
+25,1950,25,826,United Kingdom,22835,Birmingham (West Midlands),8,52.4814,-1.8998,   2
+26,1950,26,156,China,20666,Shenyang,5,41.7922,123.4328,   2
+27,1950,27,380,Italy,21588,Roma (Rome),9,41.8947,12.4811,   2
+28,1950,28,380,Italy,21571,Milano (Milan),10,45.5531,9.1834,   2
+29,1950,29,840,United States of America,23130,San Francisco-Oakland,,37.7599,-122.4374,   2
+30,1950,30,724,Spain,22525,Barcelona,,41.3888,2.1590,   2
+31,1955,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   14
+32,1955,2,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   13
+33,1955,3,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   9
+34,1955,4,826,United Kingdom,22860,London,2,51.5085,-0.1257,   8
+35,1955,5,250,France,20985,Paris,,48.8534,2.3488,   7
+36,1955,6,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   6
+37,1955,7,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   6
+38,1955,8,156,China,20656,Shanghai,5,31.2222,121.4581,   6
+39,1955,9,840,United States of America,22956,Chicago,,41.8500,-87.6501,   6
+40,1955,10,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   5
+41,1955,11,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   5
+42,1955,12,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   4
+43,1955,13,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   4
+44,1955,14,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   4
+45,1955,15,840,United States of America,23098,Philadelphia,,39.9523,-75.1638,   4
+46,1955,16,276,Germany,204296,Berlin,,52.5244,13.4105,   3
+47,1955,17,643,Russian Federation,22365,Sankt Peterburg (Saint Petersburg),,59.9299,30.3262,   3
+48,1955,18,840,United States of America,22974,Detroit,,42.3871,-83.1026,   3
+49,1955,19,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   3
+50,1955,20,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   3
+51,1955,21,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   3
+52,1955,22,156,China,20689,Tianjin,5,39.1088,117.1886,   3
+53,1955,23,840,United States of America,22939,Boston,,42.3479,-71.0645,   3
+54,1955,24,826,United Kingdom,22862,Manchester,8,53.4810,-2.2374,   2
+55,1955,25,156,China,20666,Shenyang,5,41.7922,123.4328,   2
+56,1955,26,156,China,20464,Beijing,11,39.9075,116.3972,   2
+57,1955,27,826,United Kingdom,22835,Birmingham (West Midlands),8,52.4814,-1.8998,   2
+58,1955,28,380,Italy,21588,Roma (Rome),9,41.8947,12.4811,   2
+59,1955,29,344,"China, Hong Kong SAR",21137,Hong Kong,12,22.2796,114.1887,   2
+60,1955,30,724,Spain,22525,Barcelona,,41.3888,2.1590,   2
+61,1960,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   17
+62,1960,2,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   14
+63,1960,3,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   11
+64,1960,4,826,United Kingdom,22860,London,2,51.5085,-0.1257,   8
+65,1960,5,250,France,20985,Paris,,48.8534,2.3488,   7
+66,1960,6,156,China,20656,Shanghai,5,31.2222,121.4581,   7
+67,1960,7,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   7
+68,1960,8,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   7
+69,1960,9,840,United States of America,22956,Chicago,,41.8500,-87.6501,   6
+70,1960,10,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   6
+71,1960,11,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   6
+72,1960,12,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   5
+73,1960,13,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   4
+74,1960,14,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   4
+75,1960,15,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   4
+76,1960,16,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   4
+77,1960,17,840,United States of America,23098,Philadelphia,,39.9523,-75.1638,   4
+78,1960,18,156,China,20464,Beijing,11,39.9075,116.3972,   4
+79,1960,19,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   4
+80,1960,20,840,United States of America,22974,Detroit,,42.3871,-83.1026,   4
+81,1960,21,643,Russian Federation,22365,Sankt Peterburg (Saint Petersburg),,59.9299,30.3262,   3
+82,1960,22,276,Germany,204296,Berlin,,52.5244,13.4105,   3
+83,1960,23,156,China,20689,Tianjin,5,39.1088,117.1886,   3
+84,1960,24,840,United States of America,22939,Boston,,42.3479,-71.0645,   3
+85,1960,25,156,China,20666,Shenyang,5,41.7922,123.4328,   3
+86,1960,26,392,Japan,204586,Kitakyushu-Fukuoka M.M.A.,,33.6064,130.4181,   3
+87,1960,27,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   3
+88,1960,28,344,"China, Hong Kong SAR",21137,Hong Kong,12,22.2796,114.1887,   3
+89,1960,29,724,Spain,22525,Barcelona,,41.3888,2.1590,   2
+90,1960,30,380,Italy,21588,Roma (Rome),9,41.8947,12.4811,   2
+91,1965,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   20
+92,1965,2,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   15
+93,1965,3,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   13
+94,1965,4,826,United Kingdom,22860,London,2,51.5085,-0.1257,   8
+95,1965,5,250,France,20985,Paris,,48.8534,2.3488,   8
+96,1965,6,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   8
+97,1965,7,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   7
+98,1965,8,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   7
+99,1965,9,840,United States of America,22956,Chicago,,41.8500,-87.6501,   7
+100,1965,10,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   7
+101,1965,11,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   7
+102,1965,12,156,China,20656,Shanghai,5,31.2222,121.4581,   6
+103,1965,13,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   6
+104,1965,14,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   6
+105,1965,15,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   5
+106,1965,16,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   5
+107,1965,17,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   5
+108,1965,18,156,China,20464,Beijing,11,39.9075,116.3972,   5
+109,1965,19,840,United States of America,23098,Philadelphia,,39.9523,-75.1638,   4
+110,1965,20,840,United States of America,22974,Detroit,,42.3871,-83.1026,   4
+111,1965,21,392,Japan,204586,Kitakyushu-Fukuoka M.M.A.,,33.6064,130.4181,   4
+112,1965,22,643,Russian Federation,22365,Sankt Peterburg (Saint Petersburg),,59.9299,30.3262,   4
+113,1965,23,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   3
+114,1965,24,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   3
+115,1965,25,276,Germany,204296,Berlin,,52.5244,13.4105,   3
+116,1965,26,156,China,20689,Tianjin,5,39.1088,117.1886,   3
+117,1965,27,344,"China, Hong Kong SAR",21137,Hong Kong,12,22.2796,114.1887,   3
+118,1965,28,840,United States of America,22939,Boston,,42.3479,-71.0645,   3
+119,1965,29,724,Spain,22525,Barcelona,,41.3888,2.1590,   3
+120,1965,30,156,China,20666,Shenyang,5,41.7922,123.4328,   3
+121,1970,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   23
+122,1970,2,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   16
+123,1970,3,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   15
+124,1970,4,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   9
+125,1970,5,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   8
+126,1970,6,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   8
+127,1970,7,250,France,20985,Paris,,48.8534,2.3488,   8
+128,1970,8,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   8
+129,1970,9,826,United Kingdom,22860,London,2,51.5085,-0.1257,   8
+130,1970,10,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   7
+131,1970,11,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   7
+132,1970,12,840,United States of America,22956,Chicago,,41.8500,-87.6501,   7
+133,1970,13,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   7
+134,1970,14,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   7
+135,1970,15,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   6
+136,1970,16,156,China,20656,Shanghai,5,31.2222,121.4581,   6
+137,1970,17,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   6
+138,1970,18,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   5
+139,1970,19,156,China,20464,Beijing,11,39.9075,116.3972,   4
+140,1970,20,840,United States of America,23098,Philadelphia,,39.9523,-75.1638,   4
+141,1970,21,392,Japan,204586,Kitakyushu-Fukuoka M.M.A.,,33.6064,130.4181,   4
+142,1970,22,643,Russian Federation,22365,Sankt Peterburg (Saint Petersburg),,59.9299,30.3262,   4
+143,1970,23,840,United States of America,22974,Detroit,,42.3871,-83.1026,   4
+144,1970,24,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   4
+145,1970,25,608,Philippines,22109,Manila,15,14.6042,120.9822,   4
+146,1970,26,356,India,21228,Delhi,16,28.6667,77.2167,   4
+147,1970,27,724,Spain,22549,Madrid,,40.4165,-3.7026,   4
+148,1970,28,724,Spain,22525,Barcelona,,41.3888,2.1590,   3
+149,1970,29,344,"China, Hong Kong SAR",21137,Hong Kong,12,22.2796,114.1887,   3
+150,1970,30,156,China,20689,Tianjin,5,39.1088,117.1886,   3
+151,1975,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   27
+152,1975,2,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   16
+153,1975,3,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   16
+154,1975,4,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   11
+155,1975,5,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   10
+156,1975,6,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   9
+157,1975,7,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   9
+158,1975,8,250,France,20985,Paris,,48.8534,2.3488,   9
+159,1975,9,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   8
+160,1975,10,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   8
+161,1975,11,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   8
+162,1975,12,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   8
+163,1975,13,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   7
+164,1975,14,840,United States of America,22956,Chicago,,41.8500,-87.6501,   7
+165,1975,15,826,United Kingdom,22860,London,2,51.5085,-0.1257,   7
+166,1975,16,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   7
+167,1975,17,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   6
+168,1975,18,156,China,20656,Shanghai,5,31.2222,121.4581,   6
+169,1975,19,608,Philippines,22109,Manila,15,14.6042,120.9822,   5
+170,1975,20,156,China,20464,Beijing,11,39.9075,116.3972,   5
+171,1975,21,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   5
+172,1975,22,392,Japan,204586,Kitakyushu-Fukuoka M.M.A.,,33.6064,130.4181,   5
+173,1975,23,840,United States of America,23098,Philadelphia,,39.9523,-75.1638,   4
+174,1975,24,356,India,21228,Delhi,16,28.6667,77.2167,   4
+175,1975,25,643,Russian Federation,22365,Sankt Peterburg (Saint Petersburg),,59.9299,30.3262,   4
+176,1975,26,364,Iran (Islamic Republic of),21523,Tehran,,35.6944,51.4215,   4
+177,1975,27,586,Pakistan,22044,Karachi,,24.9056,67.0822,   4
+178,1975,28,724,Spain,22549,Madrid,,40.4165,-3.7026,   4
+179,1975,29,840,United States of America,22974,Detroit,,42.3871,-83.1026,   4
+180,1975,30,764,Thailand,22617,Krung Thep (Bangkok),,13.7220,100.5252,   4
+181,1980,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   29
+182,1980,2,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   17
+183,1980,3,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   16
+184,1980,4,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   13
+185,1980,5,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   12
+186,1980,6,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   10
+187,1980,7,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   10
+188,1980,8,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   9
+189,1980,9,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   9
+190,1980,10,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   9
+191,1980,11,250,France,20985,Paris,,48.8534,2.3488,   9
+192,1980,12,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   8
+193,1980,13,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   8
+194,1980,14,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   8
+195,1980,15,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   7
+196,1980,16,840,United States of America,22956,Chicago,,41.8500,-87.6501,   7
+197,1980,17,826,United Kingdom,22860,London,2,51.5085,-0.1257,   7
+198,1980,18,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   6
+199,1980,19,608,Philippines,22109,Manila,15,14.6042,120.9822,   6
+200,1980,20,156,China,20656,Shanghai,5,31.2222,121.4581,   6
+201,1980,21,356,India,21228,Delhi,16,28.6667,77.2167,   6
+202,1980,22,156,China,20464,Beijing,11,39.9075,116.3972,   5
+203,1980,23,364,Iran (Islamic Republic of),21523,Tehran,,35.6944,51.4215,   5
+204,1980,24,586,Pakistan,22044,Karachi,,24.9056,67.0822,   5
+205,1980,25,392,Japan,204586,Kitakyushu-Fukuoka M.M.A.,,33.6064,130.4181,   5
+206,1980,26,764,Thailand,22617,Krung Thep (Bangkok),,13.7220,100.5252,   5
+207,1980,27,643,Russian Federation,22365,Sankt Peterburg (Saint Petersburg),,59.9299,30.3262,   5
+208,1980,28,840,United States of America,23098,Philadelphia,,39.9523,-75.1638,   5
+209,1980,29,344,"China, Hong Kong SAR",21137,Hong Kong,12,22.2796,114.1887,   4
+210,1980,30,604,Peru,22078,Lima,17,-12.0432,-77.0282,   4
+211,1985,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   30
+212,1985,2,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   18
+213,1985,3,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   16
+214,1985,4,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   14
+215,1985,5,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   13
+216,1985,6,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   11
+217,1985,7,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   11
+218,1985,8,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   10
+219,1985,9,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   10
+220,1985,10,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   9
+221,1985,11,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   9
+222,1985,12,250,France,20985,Paris,,48.8534,2.3488,   9
+223,1985,13,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   9
+224,1985,14,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   8
+225,1985,15,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   8
+226,1985,16,840,United States of America,22956,Chicago,,41.8500,-87.6501,   7
+227,1985,17,356,India,21228,Delhi,16,28.6667,77.2167,   7
+228,1985,18,156,China,20656,Shanghai,5,31.2222,121.4581,   7
+229,1985,19,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   7
+230,1985,20,608,Philippines,22109,Manila,15,14.6042,120.9822,   7
+231,1985,21,826,United Kingdom,22860,London,2,51.5085,-0.1257,   7
+232,1985,22,586,Pakistan,22044,Karachi,,24.9056,67.0822,   6
+233,1985,23,156,China,20464,Beijing,11,39.9075,116.3972,   6
+234,1985,24,364,Iran (Islamic Republic of),21523,Tehran,,35.6944,51.4215,   6
+235,1985,25,792,Turkey,22691,Istanbul,,41.0138,28.9497,   5
+236,1985,26,764,Thailand,22617,Krung Thep (Bangkok),,13.7220,100.5252,   5
+237,1985,27,604,Peru,22078,Lima,17,-12.0432,-77.0282,   5
+238,1985,28,392,Japan,204586,Kitakyushu-Fukuoka M.M.A.,,33.6064,130.4181,   5
+239,1985,29,344,"China, Hong Kong SAR",21137,Hong Kong,12,22.2796,114.1887,   5
+240,1985,30,643,Russian Federation,22365,Sankt Peterburg (Saint Petersburg),,59.9299,30.3262,   5
+241,1990,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   33
+242,1990,2,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   18
+243,1990,3,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   16
+244,1990,4,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   16
+245,1990,5,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   15
+246,1990,6,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   12
+247,1990,7,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   11
+248,1990,8,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   11
+249,1990,9,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   11
+250,1990,10,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   11
+251,1990,11,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   10
+252,1990,12,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   10
+253,1990,13,356,India,21228,Delhi,16,28.6667,77.2167,   9
+254,1990,14,250,France,20985,Paris,,48.8534,2.3488,   9
+255,1990,15,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   9
+256,1990,16,156,China,20656,Shanghai,5,31.2222,121.4581,   9
+257,1990,17,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   8
+258,1990,18,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   8
+259,1990,19,608,Philippines,22109,Manila,15,14.6042,120.9822,   8
+260,1990,20,840,United States of America,22956,Chicago,,41.8500,-87.6501,   7
+261,1990,21,586,Pakistan,22044,Karachi,,24.9056,67.0822,   7
+262,1990,22,826,United Kingdom,22860,London,2,51.5085,-0.1257,   7
+263,1990,23,156,China,20464,Beijing,11,39.9075,116.3972,   7
+264,1990,24,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   7
+265,1990,25,792,Turkey,22691,Istanbul,,41.0138,28.9497,   7
+266,1990,26,364,Iran (Islamic Republic of),21523,Tehran,,35.6944,51.4215,   6
+267,1990,27,764,Thailand,22617,Krung Thep (Bangkok),,13.7220,100.5252,   6
+268,1990,28,604,Peru,22078,Lima,17,-12.0432,-77.0282,   6
+269,1990,29,344,"China, Hong Kong SAR",21137,Hong Kong,12,22.2796,114.1887,   6
+270,1990,30,356,India,21321,Chennai (Madras),,13.0531,80.2488,   5
+271,1995,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   34
+272,1995,2,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   19
+273,1995,3,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   17
+274,1995,4,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   17
+275,1995,5,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   16
+276,1995,6,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   14
+277,1995,7,356,India,21228,Delhi,16,28.6667,77.2167,   12
+278,1995,8,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   12
+279,1995,9,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   12
+280,1995,10,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   12
+281,1995,11,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   11
+282,1995,12,156,China,20656,Shanghai,5,31.2222,121.4581,   11
+283,1995,13,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   10
+284,1995,14,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   10
+285,1995,15,250,France,20985,Paris,,48.8534,2.3488,   10
+286,1995,16,608,Philippines,22109,Manila,15,14.6042,120.9822,   9
+287,1995,17,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   9
+288,1995,18,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   9
+289,1995,19,586,Pakistan,22044,Karachi,,24.9056,67.0822,   8
+290,1995,20,156,China,20464,Beijing,11,39.9075,116.3972,   8
+291,1995,21,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   8
+292,1995,22,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   8
+293,1995,23,840,United States of America,22956,Chicago,,41.8500,-87.6501,   8
+294,1995,24,792,Turkey,22691,Istanbul,,41.0138,28.9497,   8
+295,1995,25,826,United Kingdom,22860,London,2,51.5085,-0.1257,   7
+296,1995,26,364,Iran (Islamic Republic of),21523,Tehran,,35.6944,51.4215,   7
+297,1995,27,604,Peru,22078,Lima,17,-12.0432,-77.0282,   7
+298,1995,28,344,"China, Hong Kong SAR",21137,Hong Kong,12,22.2796,114.1887,   6
+299,1995,29,764,Thailand,22617,Krung Thep (Bangkok),,13.7220,100.5252,   6
+300,1995,30,566,Nigeria,22007,Lagos,19,6.4531,3.3958,   6
+301,2000,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   34
+302,2000,2,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   19
+303,2000,3,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   18
+304,2000,4,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   18
+305,2000,5,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   17
+306,2000,6,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   16
+307,2000,7,356,India,21228,Delhi,16,28.6667,77.2167,   16
+308,2000,8,156,China,20656,Shanghai,5,31.2222,121.4581,   14
+309,2000,9,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   14
+310,2000,10,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   13
+311,2000,11,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   13
+312,2000,12,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   12
+313,2000,13,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   11
+314,2000,14,156,China,20464,Beijing,11,39.9075,116.3972,   10
+315,2000,15,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   10
+316,2000,16,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   10
+317,2000,17,608,Philippines,22109,Manila,15,14.6042,120.9822,   10
+318,2000,18,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   10
+319,2000,19,586,Pakistan,22044,Karachi,,24.9056,67.0822,   10
+320,2000,20,250,France,20985,Paris,,48.8534,2.3488,   10
+321,2000,21,792,Turkey,22691,Istanbul,,41.0138,28.9497,   9
+322,2000,22,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   9
+323,2000,23,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   8
+324,2000,24,840,United States of America,22956,Chicago,,41.8500,-87.6501,   8
+325,2000,25,156,China,20484,Chongqing,20,29.5628,106.5528,   8
+326,2000,26,156,China,20517,"Guangzhou, Guangdong",5,23.1255,113.2574,   8
+327,2000,27,604,Peru,22078,Lima,17,-12.0432,-77.0282,   7
+328,2000,28,566,Nigeria,22007,Lagos,19,6.4531,3.3958,   7
+329,2000,29,826,United Kingdom,22860,London,2,51.5085,-0.1257,   7
+330,2000,30,364,Iran (Islamic Republic of),21523,Tehran,,35.6944,51.4215,   7
+331,2005,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   36
+332,2005,2,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   19
+333,2005,3,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   19
+334,2005,4,356,India,21228,Delhi,16,28.6667,77.2167,   19
+335,2005,5,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   18
+336,2005,6,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   18
+337,2005,7,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   17
+338,2005,8,156,China,20656,Shanghai,5,31.2222,121.4581,   17
+339,2005,9,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   15
+340,2005,10,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   14
+341,2005,11,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   13
+342,2005,12,156,China,20464,Beijing,11,39.9075,116.3972,   13
+343,2005,13,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   12
+344,2005,14,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   12
+345,2005,15,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   12
+346,2005,16,586,Pakistan,22044,Karachi,,24.9056,67.0822,   11
+347,2005,17,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   11
+348,2005,18,608,Philippines,22109,Manila,15,14.6042,120.9822,   11
+349,2005,19,792,Turkey,22691,Istanbul,,41.0138,28.9497,   10
+350,2005,20,250,France,20985,Paris,,48.8534,2.3488,   10
+351,2005,21,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   10
+352,2005,22,156,China,20484,Chongqing,20,29.5628,106.5528,   9
+353,2005,23,156,China,20517,"Guangzhou, Guangdong",5,23.1255,113.2574,   9
+354,2005,24,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   9
+355,2005,25,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   9
+356,2005,26,566,Nigeria,22007,Lagos,19,6.4531,3.3958,   9
+357,2005,27,840,United States of America,22956,Chicago,,41.8500,-87.6501,   8
+358,2005,28,156,China,20689,Tianjin,5,39.1088,117.1886,   8
+359,2005,29,156,China,20667,Shenzhen,5,22.5415,114.0634,   8
+360,2005,30,604,Peru,22078,Lima,17,-12.0432,-77.0282,   8
+361,2010,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   37
+362,2010,2,356,India,21228,Delhi,16,28.6667,77.2167,   22
+363,2010,3,156,China,20656,Shanghai,5,31.2222,121.4581,   20
+364,2010,4,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   20
+365,2010,5,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   20
+366,2010,6,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   19
+367,2010,7,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   18
+368,2010,8,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   18
+369,2010,9,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   17
+370,2010,10,156,China,20464,Beijing,11,39.9075,116.3972,   16
+371,2010,11,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   15
+372,2010,12,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   14
+373,2010,13,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   14
+374,2010,14,586,Pakistan,22044,Karachi,,24.9056,67.0822,   13
+375,2010,15,792,Turkey,22691,Istanbul,,41.0138,28.9497,   13
+376,2010,16,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   12
+377,2010,17,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   12
+378,2010,18,608,Philippines,22109,Manila,15,14.6042,120.9822,   12
+379,2010,19,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   11
+380,2010,20,156,China,20484,Chongqing,20,29.5628,106.5528,   11
+381,2010,21,250,France,20985,Paris,,48.8534,2.3488,   10
+382,2010,22,566,Nigeria,22007,Lagos,19,6.4531,3.3958,   10
+383,2010,23,156,China,20517,"Guangzhou, Guangdong",5,23.1255,113.2574,   10
+384,2010,24,156,China,20667,Shenzhen,5,22.5415,114.0634,   10
+385,2010,25,156,China,20689,Tianjin,5,39.1088,117.1886,   10
+386,2010,26,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   10
+387,2010,27,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   10
+388,2010,28,180,Democratic Republic of the Congo,20853,Kinshasa,,-4.3276,15.3136,   9
+389,2010,29,392,Japan,204583,Chukyo M.M.A. (Nagoya),,35.1815,136.9064,   9
+390,2010,30,604,Peru,22078,Lima,17,-12.0432,-77.0282,   9
+391,2015,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   37
+392,2015,2,356,India,21228,Delhi,16,28.6667,77.2167,   26
+393,2015,3,156,China,20656,Shanghai,5,31.2222,121.4581,   23
+394,2015,4,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   21
+395,2015,5,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   21
+396,2015,6,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   19
+397,2015,7,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   19
+398,2015,8,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   19
+399,2015,9,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   19
+400,2015,10,156,China,20464,Beijing,11,39.9075,116.3972,   18
+401,2015,11,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   18
+402,2015,12,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   15
+403,2015,13,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   14
+404,2015,14,586,Pakistan,22044,Karachi,,24.9056,67.0822,   14
+405,2015,15,792,Turkey,22691,Istanbul,,41.0138,28.9497,   14
+406,2015,16,156,China,20484,Chongqing,20,29.5628,106.5528,   13
+407,2015,17,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   13
+408,2015,18,608,Philippines,22109,Manila,15,14.6042,120.9822,   13
+409,2015,19,156,China,20689,Tianjin,5,39.1088,117.1886,   13
+410,2015,20,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   12
+411,2015,21,566,Nigeria,22007,Lagos,19,6.4531,3.3958,   12
+412,2015,22,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   12
+413,2015,23,156,China,20517,"Guangzhou, Guangdong",5,23.1255,113.2574,   12
+414,2015,24,180,Democratic Republic of the Congo,20853,Kinshasa,,-4.3276,15.3136,   12
+415,2015,25,156,China,20667,Shenzhen,5,22.5415,114.0634,   11
+416,2015,26,250,France,20985,Paris,,48.8534,2.3488,   11
+417,2015,27,586,Pakistan,22046,Lahore,,31.5497,74.3436,   10
+418,2015,28,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   10
+419,2015,29,356,India,21176,Bangalore,,12.9719,77.5937,   10
+420,2015,30,410,Republic of Korea,21758,Seoul,14,37.5683,126.9778,   10
+421,2020,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   37
+422,2020,2,356,India,21228,Delhi,16,28.6667,77.2167,   30
+423,2020,3,156,China,20656,Shanghai,5,31.2222,121.4581,   27
+424,2020,4,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   22
+425,2020,5,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   22
+426,2020,6,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   21
+427,2020,7,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   21
+428,2020,8,156,China,20464,Beijing,11,39.9075,116.3972,   20
+429,2020,9,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   20
+430,2020,10,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   19
+431,2020,11,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   19
+432,2020,12,586,Pakistan,22044,Karachi,,24.9056,67.0822,   16
+433,2020,13,156,China,20484,Chongqing,20,29.5628,106.5528,   16
+434,2020,14,792,Turkey,22691,Istanbul,,41.0138,28.9497,   15
+435,2020,15,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   15
+436,2020,16,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   15
+437,2020,17,566,Nigeria,22007,Lagos,19,6.4531,3.3958,   14
+438,2020,18,180,Democratic Republic of the Congo,20853,Kinshasa,,-4.3276,15.3136,   14
+439,2020,19,608,Philippines,22109,Manila,15,14.6042,120.9822,   14
+440,2020,20,156,China,20689,Tianjin,5,39.1088,117.1886,   14
+441,2020,21,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   13
+442,2020,22,156,China,20517,"Guangzhou, Guangdong",5,23.1255,113.2574,   13
+443,2020,23,586,Pakistan,22046,Lahore,,31.5497,74.3436,   13
+444,2020,24,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   13
+445,2020,25,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   12
+446,2020,26,156,China,20667,Shenzhen,5,22.5415,114.0634,   12
+447,2020,27,356,India,21176,Bangalore,,12.9719,77.5937,   12
+448,2020,28,250,France,20985,Paris,,48.8534,2.3488,   11
+449,2020,29,170,Colombia,20837,Bogotá,21,4.6097,-74.0818,   11
+450,2020,30,356,India,21321,Chennai (Madras),,13.0531,80.2488,   11
+451,2025,1,392,Japan,21671,Tokyo,1,35.6895,139.6917,   37
+452,2025,2,356,India,21228,Delhi,16,28.6667,77.2167,   35
+453,2025,3,156,China,20656,Shanghai,5,31.2222,121.4581,   30
+454,2025,4,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   25
+455,2025,5,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   23
+456,2025,6,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   23
+457,2025,7,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   23
+458,2025,8,156,China,20464,Beijing,11,39.9075,116.3972,   23
+459,2025,9,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   22
+460,2025,10,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   19
+461,2025,11,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   19
+462,2025,12,156,China,20484,Chongqing,20,29.5628,106.5528,   18
+463,2025,13,586,Pakistan,22044,Karachi,,24.9056,67.0822,   18
+464,2025,14,180,Democratic Republic of the Congo,20853,Kinshasa,,-4.3276,15.3136,   18
+465,2025,15,566,Nigeria,22007,Lagos,19,6.4531,3.3958,   17
+466,2025,16,792,Turkey,22691,Istanbul,,41.0138,28.9497,   16
+467,2025,17,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   16
+468,2025,18,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   16
+469,2025,19,608,Philippines,22109,Manila,15,14.6042,120.9822,   15
+470,2025,20,156,China,20517,"Guangzhou, Guangdong",5,23.1255,113.2574,   15
+471,2025,21,586,Pakistan,22046,Lahore,,31.5497,74.3436,   15
+472,2025,22,156,China,20689,Tianjin,5,39.1088,117.1886,   15
+473,2025,23,356,India,21176,Bangalore,,12.9719,77.5937,   14
+474,2025,24,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   14
+475,2025,25,156,China,20667,Shenzhen,5,22.5415,114.0634,   14
+476,2025,26,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   13
+477,2025,27,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   13
+478,2025,28,356,India,21321,Chennai (Madras),,13.0531,80.2488,   12
+479,2025,29,170,Colombia,20837,Bogotá,21,4.6097,-74.0818,   12
+480,2025,30,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   12
+481,2030,1,356,India,21228,Delhi,16,28.6667,77.2167,   39
+482,2030,2,392,Japan,21671,Tokyo,1,35.6895,139.6917,   37
+483,2030,3,156,China,20656,Shanghai,5,31.2222,121.4581,   33
+484,2030,4,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   28
+485,2030,5,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   26
+486,2030,6,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   25
+487,2030,7,156,China,20464,Beijing,11,39.9075,116.3972,   24
+488,2030,8,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   24
+489,2030,9,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   24
+490,2030,10,180,Democratic Republic of the Congo,20853,Kinshasa,,-4.3276,15.3136,   22
+491,2030,11,566,Nigeria,22007,Lagos,19,6.4531,3.3958,   21
+492,2030,12,586,Pakistan,22044,Karachi,,24.9056,67.0822,   20
+493,2030,13,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   20
+494,2030,14,156,China,20484,Chongqing,20,29.5628,106.5528,   20
+495,2030,15,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   19
+496,2030,16,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   18
+497,2030,17,792,Turkey,22691,Istanbul,,41.0138,28.9497,   17
+498,2030,18,586,Pakistan,22046,Lahore,,31.5497,74.3436,   17
+499,2030,19,608,Philippines,22109,Manila,15,14.6042,120.9822,   17
+500,2030,20,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   16
+501,2030,21,356,India,21176,Bangalore,,12.9719,77.5937,   16
+502,2030,22,156,China,20517,"Guangzhou, Guangdong",5,23.1255,113.2574,   16
+503,2030,23,156,China,20689,Tianjin,5,39.1088,117.1886,   16
+504,2030,24,156,China,20667,Shenzhen,5,22.5415,114.0634,   15
+505,2030,25,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   14
+506,2030,26,356,India,21321,Chennai (Madras),,13.0531,80.2488,   14
+507,2030,27,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   13
+508,2030,28,643,Russian Federation,22299,Moskva (Moscow),,55.7550,37.6218,   13
+509,2030,29,356,India,21275,Hyderabad,,17.3753,78.4744,   13
+510,2030,30,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   13
+511,2035,1,356,India,21228,Delhi,16,28.6667,77.2167,   43
+512,2035,2,392,Japan,21671,Tokyo,1,35.6895,139.6917,   36
+513,2035,3,156,China,20656,Shanghai,5,31.2222,121.4581,   34
+514,2035,4,50,Bangladesh,20119,Dhaka,18,23.7104,90.4074,   31
+515,2035,5,818,Egypt,22812,Al-Qahirah (Cairo),7,30.0392,31.2394,   29
+516,2035,6,356,India,21206,Mumbai (Bombay),,19.0740,72.8808,   27
+517,2035,7,180,Democratic Republic of the Congo,20853,Kinshasa,,-4.3276,15.3136,   27
+518,2035,8,484,Mexico,21853,Ciudad de México (Mexico City),6,19.4273,-99.1419,   25
+519,2035,9,156,China,20464,Beijing,11,39.9075,116.3972,   25
+520,2035,10,76,Brazil,20287,São Paulo,,-23.5475,-46.6361,   24
+521,2035,11,566,Nigeria,22007,Lagos,19,6.4531,3.3958,   24
+522,2035,12,586,Pakistan,22044,Karachi,,24.9056,67.0822,   23
+523,2035,13,840,United States of America,23083,New York-Newark,,40.7170,-74.0037,   21
+524,2035,14,156,China,20484,Chongqing,20,29.5628,106.5528,   21
+525,2035,15,356,India,21211,Kolkata (Calcutta),,22.5335,88.3560,   20
+526,2035,16,586,Pakistan,22046,Lahore,,31.5497,74.3436,   19
+527,2035,17,608,Philippines,22109,Manila,15,14.6042,120.9822,   19
+528,2035,18,392,Japan,206459,Kinki M.M.A. (Osaka),3,34.6758,135.5538,   18
+529,2035,19,356,India,21176,Bangalore,,12.9719,77.5937,   18
+530,2035,20,792,Turkey,22691,Istanbul,,41.0138,28.9497,   18
+531,2035,21,32,Argentina,20058,Buenos Aires,4,-34.6051,-58.4004,   17
+532,2035,22,156,China,20517,"Guangzhou, Guangdong",5,23.1255,113.2574,   17
+533,2035,23,156,China,20689,Tianjin,5,39.1088,117.1886,   16
+534,2035,24,356,India,21321,Chennai (Madras),,13.0531,80.2488,   15
+535,2035,25,156,China,20667,Shenzhen,5,22.5415,114.0634,   15
+536,2035,26,76,Brazil,20272,Rio de Janeiro,,-22.9028,-43.2075,   15
+537,2035,27,24,Angola,20049,Luanda,22,-8.8368,13.2343,   14
+538,2035,28,356,India,21275,Hyderabad,,17.3753,78.4744,   14
+539,2035,29,840,United States of America,23052,Los Angeles-Long Beach-Santa Ana,,34.0317,-118.2417,   14
+540,2035,30,360,Indonesia,21454,Jakarta,13,-6.2118,106.8416,   14

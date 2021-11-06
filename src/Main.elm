@@ -1,13 +1,14 @@
 module Main exposing (..)
 
-import Bar
 import BarStacked
 import Browser
+import City
 import Helpers
 import Html exposing (Html)
 import Html.Attributes as Attributes
 import Line
 import LineAnimated
+import LineStacked
 import Task
 
 
@@ -20,6 +21,8 @@ type alias Model =
     , height : Int
     , lineAnimated : LineAnimated.Model
     , line : Line.Model
+    , lineStacked : LineStacked.Model
+    , barStacked : BarStacked.Model
     }
 
 
@@ -31,6 +34,8 @@ type Msg
     = NoOp
     | LineAnimatedMsg LineAnimated.Msg
     | LineMsg Line.Msg
+    | LineStackedMsg LineStacked.Msg
+    | BarStackedMsg BarStacked.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -55,6 +60,22 @@ update msg model =
                         )
                    )
 
+        LineStackedMsg subMsg ->
+            LineStacked.update subMsg model.lineStacked
+                |> (\( subModel, subCmd ) ->
+                        ( { model | lineStacked = subModel }
+                        , Cmd.map LineStackedMsg subCmd
+                        )
+                   )
+
+        BarStackedMsg subMsg ->
+            BarStacked.update subMsg model.barStacked
+                |> (\( subModel, subCmd ) ->
+                        ( { model | barStacked = subModel }
+                        , Cmd.map BarStackedMsg subCmd
+                        )
+                   )
+
 
 
 -- VIEW
@@ -64,10 +85,22 @@ view : Model -> Html Msg
 view model =
     Html.div [ Attributes.class "content" ]
         [ introView model
-        , exampleView (LineAnimated.view model model.lineAnimated |> List.map (Html.map LineAnimatedMsg)) model
+        , exampleView
+            (LineAnimated.view model model.lineAnimated
+                |> List.map (Html.map LineAnimatedMsg)
+            )
+            model
+        , exampleView
+            (LineStacked.view model model.lineStacked
+                |> List.map (Html.map LineStackedMsg)
+            )
+            model
         , exampleView (Line.view model model.line |> List.map (Html.map LineMsg)) model
-        , exampleView (BarStacked.view model) model
-        , exampleView (Bar.view model) model
+        , exampleView
+            (BarStacked.view model model.barStacked
+                |> List.map (Html.map BarStackedMsg)
+            )
+            model
         , footer
         ]
 
@@ -129,8 +162,21 @@ init { width, height } =
       , height = height
       , lineAnimated = LineAnimated.initialModel
       , line = Line.initialModel
+      , lineStacked = LineStacked.initialModel
+      , barStacked = BarStacked.initialModel
       }
-    , Cmd.map LineAnimatedMsg (Task.perform identity (Task.succeed LineAnimated.StartAnimation))
+    , Cmd.batch
+        [ Cmd.map LineStackedMsg
+            (Task.perform LineStacked.OnData (Task.succeed City.decodeCity))
+        , Cmd.map LineAnimatedMsg
+            (Task.perform LineAnimated.OnData (Task.succeed City.decodeCity))
+        , Cmd.map LineAnimatedMsg
+            (Task.perform LineAnimated.OnData (Task.succeed City.decodeCity))
+        , Cmd.map BarStackedMsg
+            (Task.perform BarStacked.OnData (Task.succeed City.decodeCity))
+        , Cmd.map LineMsg
+            (Task.perform Line.OnData (Task.succeed City.decodeCity))
+        ]
     )
 
 
