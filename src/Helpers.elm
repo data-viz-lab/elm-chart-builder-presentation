@@ -56,9 +56,9 @@ toChartHeight width =
 
 margin : { top : Float, right : Float, left : Float, bottom : Float }
 margin =
-    { top = 10, right = 20, bottom = 20, left = 60 }
+    { top = 10, right = 20, bottom = 20, left = 30 }
 
 
 marginWithLabel : { top : Float, right : Float, left : Float, bottom : Float }
 marginWithLabel =
-    { top = 10, right = 125, bottom = 20, left = 60 }
+    { top = 10, right = 80, bottom = 20, left = 30 }

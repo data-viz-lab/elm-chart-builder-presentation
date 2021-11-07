@@ -7692,7 +7692,7 @@ var $data_viz_lab$elm_chart_builder$Chart$Bar$init = function (c) {
 		{height: c.height, margin: c.margin, width: c.width},
 		$data_viz_lab$elm_chart_builder$Chart$Internal$Type$defaultConfig);
 };
-var $author$project$Helpers$marginWithLabel = {bottom: 20, left: 60, right: 125, top: 10};
+var $author$project$Helpers$marginWithLabel = {bottom: 20, left: 30, right: 80, top: 10};
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$DataBand = function (a) {
 	return {$: 'DataBand', a: a};
 };
