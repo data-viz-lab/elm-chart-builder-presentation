@@ -89,7 +89,7 @@ yAxis : Bar.YAxis Float
 yAxis =
     Bar.axisLeft
         [ Axis.tickSizeOuter 0
-        , Axis.tickCount 3
+        , Axis.tickCount 6
         , Axis.tickFormat (valueFormatter << abs)
         ]
 
@@ -141,7 +141,7 @@ desc : Html msg
 desc =
     Html.section [ Attributes.class "example__desc" ]
         [ Html.h3 [] [ Html.text "Stacked vertical bar chart" ]
-        , Html.p [] [ Html.text "TODO" ]
+        , Html.p [] [ Html.text "Population in millions" ]
         , Html.a [ Attributes.href "https://github.com/data-viz-lab/elm-chart-builder-presentation/blob/main/src/BarStacked.elm" ]
             [ Html.text "source" ]
         ]
@@ -155,7 +155,7 @@ labelsView width model =
             (\i d ->
                 let
                     value =
-                        100
+                        60
 
                     margin =
                         40

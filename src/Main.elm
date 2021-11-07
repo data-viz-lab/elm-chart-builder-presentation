@@ -170,8 +170,6 @@ init { width, height } =
             (Task.perform LineStacked.OnData (Task.succeed City.decodeCity))
         , Cmd.map LineAnimatedMsg
             (Task.perform LineAnimated.OnData (Task.succeed City.decodeCity))
-        , Cmd.map LineAnimatedMsg
-            (Task.perform LineAnimated.OnData (Task.succeed City.decodeCity))
         , Cmd.map BarStackedMsg
             (Task.perform BarStacked.OnData (Task.succeed City.decodeCity))
         , Cmd.map LineMsg

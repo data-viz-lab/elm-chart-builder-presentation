@@ -6489,13 +6489,6 @@ var $author$project$Main$init = function (_v0) {
 						$elm$core$Task$succeed($author$project$City$decodeCity))),
 					A2(
 					$elm$core$Platform$Cmd$map,
-					$author$project$Main$LineAnimatedMsg,
-					A2(
-						$elm$core$Task$perform,
-						$author$project$LineAnimated$OnData,
-						$elm$core$Task$succeed($author$project$City$decodeCity))),
-					A2(
-					$elm$core$Platform$Cmd$map,
 					$author$project$Main$BarStackedMsg,
 					A2(
 						$elm$core$Task$perform,
@@ -7250,10 +7243,12 @@ var $author$project$Helpers$chartRatio = 1.7;
 var $author$project$Helpers$toChartHeight = function (width) {
 	return $elm$core$Basics$round(width / $author$project$Helpers$chartRatio);
 };
+var $elm$core$Debug$log = _Debug_log;
 var $author$project$Helpers$maxPageWidth = 1800;
 var $author$project$Helpers$toChartWidth = function (pageWidth) {
 	var width = (_Utils_cmp(pageWidth, $author$project$Helpers$maxPageWidth) > 0) ? $author$project$Helpers$maxPageWidth : pageWidth;
-	return 0.333 * width;
+	var factor = (pageWidth < 1400) ? A2($elm$core$Debug$log, 'factor', 0.5) : 0.333;
+	return factor * width;
 };
 var $author$project$Main$exampleView = F2(
 	function (content, model) {
@@ -12730,7 +12725,7 @@ var $author$project$BarStacked$yAxis = $data_viz_lab$elm_chart_builder$Chart$Bar
 	_List_fromArray(
 		[
 			$gampleman$elm_visualization$Axis$tickSizeOuter(0),
-			$gampleman$elm_visualization$Axis$tickCount(3),
+			$gampleman$elm_visualization$Axis$tickCount(6),
 			$gampleman$elm_visualization$Axis$tickFormat(
 			A2($elm$core$Basics$composeL, $author$project$BarStacked$valueFormatter, $elm$core$Basics$abs))
 		]));
@@ -12825,7 +12820,7 @@ var $author$project$BarStacked$desc = A2(
 			_List_Nil,
 			_List_fromArray(
 				[
-					$elm$html$Html$text('TODO')
+					$elm$html$Html$text('Population in millions')
 				])),
 			A2(
 			$elm$html$Html$a,
@@ -12844,7 +12839,7 @@ var $author$project$BarStacked$labelsView = F2(
 			$elm$core$List$indexedMap,
 			F2(
 				function (i, d) {
-					var value = 100;
+					var value = 60;
 					var margin = 40;
 					var top = (!i) ? $elm$core$String$fromInt(value) : function (v) {
 						return $elm$core$String$fromFloat((v - margin) - value);
@@ -19893,7 +19888,7 @@ var $author$project$LineStacked$desc = A2(
 			$elm$html$Html$a,
 			_List_fromArray(
 				[
-					$elm$html$Html$Attributes$href('https://github.com/data-viz-lab/elm-chart-builder-presentation/blob/main/src/Line.elm')
+					$elm$html$Html$Attributes$href('https://github.com/data-viz-lab/elm-chart-builder-presentation/blob/main/src/LineStacked.elm')
 				]),
 			_List_fromArray(
 				[

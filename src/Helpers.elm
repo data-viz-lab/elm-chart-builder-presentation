@@ -33,10 +33,17 @@ toChartWidth pageWidth =
 
             else
                 pageWidth
+
+        factor =
+            if pageWidth < 1400 then
+                Debug.log "factor" 0.5
+
+            else
+                0.333
     in
     width
         |> toFloat
-        |> (*) 0.333
+        |> (*) factor
 
 
 toChartHeight : Float -> Float

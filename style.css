@@ -122,3 +122,9 @@ footer {
   color: #222;
   font-size: 14px;
 }
+
+@media (max-width: 1400px) {
+  .example__code-prev {
+    display: none;
+  }
+}
