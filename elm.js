@@ -15010,6 +15010,9 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Type$getDomainTimeFromData = 
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$HoverAllCriteria = function (a) {
 	return {$: 'HoverAllCriteria', a: a};
 };
+var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$HoverOneCriteria = function (a) {
+	return {$: 'HoverOneCriteria', a: a};
+};
 var $elm_community$list_extra$List$Extra$find = F2(
 	function (predicate, list) {
 		find:
@@ -15490,20 +15493,19 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$vectorLength = function
 };
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$getWithin = F5(
 	function (_v0, data, _v1, criteria, eventData) {
+		var padding = _v0.padding;
 		var margin = _v0.margin;
-		var width = _v0.width;
 		var height = _v0.height;
 		var xScale = _v1.a;
 		var yScale = _v1.b;
-		var yPosition = (eventData.pageY - eventData.boundingClientRect.top) - margin.top;
-		var xPosition = (eventData.pageX - eventData.boundingClientRect.left) - margin.left;
+		var yPosition = ((eventData.pageY - eventData.boundingClientRect.top) - margin.top) - padding.top;
+		var xPosition = ((eventData.pageX - eventData.boundingClientRect.left) - margin.left) - padding.left;
 		var dataTransposed = $data_viz_lab$elm_chart_builder$Chart$Internal$Event$transposeDataGroup(data);
 		var keys = $elm$core$Dict$keys(dataTransposed);
 		var _v2 = _Utils_Tuple2(
 			A2($gampleman$elm_visualization$Scale$invert, xScale, xPosition),
 			A2($gampleman$elm_visualization$Scale$invert, yScale, yPosition));
 		var xValue = _v2.a;
-		var yValue = _v2.b;
 		var nearestKey = $elm$core$String$fromFloat(
 			A2(
 				$data_viz_lab$elm_chart_builder$Chart$Internal$Event$nearest,
@@ -15553,7 +15555,6 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$getWithin = F5(
 					var groupLabel = _v7.groupLabel;
 					var point = _v7.point;
 					return {
-						boundingClientRect: eventData.boundingClientRect,
 						selection: {
 							x: point.a,
 							y: _List_fromArray(
@@ -15589,7 +15590,6 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$getWithin = F5(
 						if (acc.$ === 'Nothing') {
 							return $elm$core$Maybe$Just(
 								{
-									boundingClientRect: eventData.boundingClientRect,
 									selection: {
 										x: point.a,
 										y: _List_fromArray(
@@ -15624,13 +15624,13 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$EventData = F3(
 	});
 var $elm$json$Json$Decode$float = _Json_decodeFloat;
 var $elm$json$Json$Decode$map3 = _Json_map3;
-var $debois$elm_dom$DOM$offsetHeight = A2($elm$json$Json$Decode$field, 'offsetHeight', $elm$json$Json$Decode$float);
-var $debois$elm_dom$DOM$offsetWidth = A2($elm$json$Json$Decode$field, 'offsetWidth', $elm$json$Json$Decode$float);
+var $K_Adam$elm_dom$DOM$offsetHeight = A2($elm$json$Json$Decode$field, 'offsetHeight', $elm$json$Json$Decode$float);
+var $K_Adam$elm_dom$DOM$offsetWidth = A2($elm$json$Json$Decode$field, 'offsetWidth', $elm$json$Json$Decode$float);
 var $elm$json$Json$Decode$map4 = _Json_map4;
-var $debois$elm_dom$DOM$offsetLeft = A2($elm$json$Json$Decode$field, 'offsetLeft', $elm$json$Json$Decode$float);
+var $K_Adam$elm_dom$DOM$offsetLeft = A2($elm$json$Json$Decode$field, 'offsetLeft', $elm$json$Json$Decode$float);
 var $elm$json$Json$Decode$null = _Json_decodeNull;
 var $elm$json$Json$Decode$oneOf = _Json_oneOf;
-var $debois$elm_dom$DOM$offsetParent = F2(
+var $K_Adam$elm_dom$DOM$offsetParent = F2(
 	function (x, decoder) {
 		return $elm$json$Json$Decode$oneOf(
 			_List_fromArray(
@@ -15642,10 +15642,10 @@ var $debois$elm_dom$DOM$offsetParent = F2(
 					A2($elm$json$Json$Decode$field, 'offsetParent', decoder)
 				]));
 	});
-var $debois$elm_dom$DOM$offsetTop = A2($elm$json$Json$Decode$field, 'offsetTop', $elm$json$Json$Decode$float);
-var $debois$elm_dom$DOM$scrollLeft = A2($elm$json$Json$Decode$field, 'scrollLeft', $elm$json$Json$Decode$float);
-var $debois$elm_dom$DOM$scrollTop = A2($elm$json$Json$Decode$field, 'scrollTop', $elm$json$Json$Decode$float);
-var $debois$elm_dom$DOM$position = F2(
+var $K_Adam$elm_dom$DOM$offsetTop = A2($elm$json$Json$Decode$field, 'offsetTop', $elm$json$Json$Decode$float);
+var $K_Adam$elm_dom$DOM$scrollLeft = A2($elm$json$Json$Decode$field, 'scrollLeft', $elm$json$Json$Decode$float);
+var $K_Adam$elm_dom$DOM$scrollTop = A2($elm$json$Json$Decode$field, 'scrollTop', $elm$json$Json$Decode$float);
+var $K_Adam$elm_dom$DOM$position = F2(
 	function (x, y) {
 		return A2(
 			$elm$json$Json$Decode$andThen,
@@ -15653,9 +15653,9 @@ var $debois$elm_dom$DOM$position = F2(
 				var x_ = _v0.a;
 				var y_ = _v0.b;
 				return A2(
-					$debois$elm_dom$DOM$offsetParent,
+					$K_Adam$elm_dom$DOM$offsetParent,
 					_Utils_Tuple2(x_, y_),
-					A2($debois$elm_dom$DOM$position, x_, y_));
+					A2($K_Adam$elm_dom$DOM$position, x_, y_));
 			},
 			A5(
 				$elm$json$Json$Decode$map4,
@@ -15663,12 +15663,12 @@ var $debois$elm_dom$DOM$position = F2(
 					function (scrollLeftP, scrollTopP, offsetLeftP, offsetTopP) {
 						return _Utils_Tuple2((x + offsetLeftP) - scrollLeftP, (y + offsetTopP) - scrollTopP);
 					}),
-				$debois$elm_dom$DOM$scrollLeft,
-				$debois$elm_dom$DOM$scrollTop,
-				$debois$elm_dom$DOM$offsetLeft,
-				$debois$elm_dom$DOM$offsetTop));
+				$K_Adam$elm_dom$DOM$scrollLeft,
+				$K_Adam$elm_dom$DOM$scrollTop,
+				$K_Adam$elm_dom$DOM$offsetLeft,
+				$K_Adam$elm_dom$DOM$offsetTop));
 	});
-var $debois$elm_dom$DOM$boundingClientRect = A4(
+var $K_Adam$elm_dom$DOM$boundingClientRect = A4(
 	$elm$json$Json$Decode$map3,
 	F3(
 		function (_v0, width, height) {
@@ -15676,26 +15676,26 @@ var $debois$elm_dom$DOM$boundingClientRect = A4(
 			var y = _v0.b;
 			return {height: height, left: x, top: y, width: width};
 		}),
-	A2($debois$elm_dom$DOM$position, 0, 0),
-	$debois$elm_dom$DOM$offsetWidth,
-	$debois$elm_dom$DOM$offsetHeight);
+	A2($K_Adam$elm_dom$DOM$position, 0, 0),
+	$K_Adam$elm_dom$DOM$offsetWidth,
+	$K_Adam$elm_dom$DOM$offsetHeight);
 var $elm$json$Json$Decode$lazy = function (thunk) {
 	return A2(
 		$elm$json$Json$Decode$andThen,
 		thunk,
 		$elm$json$Json$Decode$succeed(_Utils_Tuple0));
 };
-var $debois$elm_dom$DOM$parentElement = function (decoder) {
+var $K_Adam$elm_dom$DOM$parentElement = function (decoder) {
 	return A2($elm$json$Json$Decode$field, 'parentElement', decoder);
 };
 function $data_viz_lab$elm_chart_builder$Chart$Internal$Event$cyclic$position() {
 	return $elm$json$Json$Decode$oneOf(
 		_List_fromArray(
 			[
-				$debois$elm_dom$DOM$boundingClientRect,
+				$K_Adam$elm_dom$DOM$boundingClientRect,
 				$elm$json$Json$Decode$lazy(
 				function (_v0) {
-					return $debois$elm_dom$DOM$parentElement(
+					return $K_Adam$elm_dom$DOM$parentElement(
 						$data_viz_lab$elm_chart_builder$Chart$Internal$Event$cyclic$position());
 				})
 			]));
@@ -15707,7 +15707,7 @@ try {
 	};
 } catch ($) {
 	throw 'Some top-level definitions from `Chart.Internal.Event` are causing infinite recursion:\n\n  ┌─────┐\n  │    position\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
-var $debois$elm_dom$DOM$target = function (decoder) {
+var $K_Adam$elm_dom$DOM$target = function (decoder) {
 	return A2($elm$json$Json$Decode$field, 'target', decoder);
 };
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$mouseEventDecoder = A4(
@@ -15715,7 +15715,7 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$mouseEventDecoder = A4(
 	$data_viz_lab$elm_chart_builder$Chart$Internal$Event$EventData,
 	A2($elm$json$Json$Decode$field, 'pageX', $elm$json$Json$Decode$float),
 	A2($elm$json$Json$Decode$field, 'pageY', $elm$json$Json$Decode$float),
-	$debois$elm_dom$DOM$target($data_viz_lab$elm_chart_builder$Chart$Internal$Event$position));
+	$K_Adam$elm_dom$DOM$target($data_viz_lab$elm_chart_builder$Chart$Internal$Event$position));
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
 };
@@ -15750,6 +15750,13 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$onMouseLeave = function
 		$elm$json$Json$Decode$succeed(
 			message($elm$core$Maybe$Nothing)));
 };
+var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$onTouchEnd = function (message) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'touchend',
+		$elm$json$Json$Decode$succeed(
+			message($elm$core$Maybe$Nothing)));
+};
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$hoverAll = F4(
 	function (config, data, scales, msg) {
 		return _List_fromArray(
@@ -15778,12 +15785,18 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$hoverAll = F4(
 				data,
 				scales,
 				msg),
-				$data_viz_lab$elm_chart_builder$Chart$Internal$Event$onMouseLeave(msg)
+				A6(
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Event$onEvent,
+				'touchend',
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Event$HoverOneCriteria(100),
+				config,
+				data,
+				scales,
+				msg),
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Event$onMouseLeave(msg),
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Event$onTouchEnd(msg)
 			]);
 	});
-var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$HoverOneCriteria = function (a) {
-	return {$: 'HoverOneCriteria', a: a};
-};
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$hoverOne = F4(
 	function (config, data, scales, msg) {
 		return _List_fromArray(
@@ -15812,7 +15825,8 @@ var $data_viz_lab$elm_chart_builder$Chart$Internal$Event$hoverOne = F4(
 				data,
 				scales,
 				msg),
-				$data_viz_lab$elm_chart_builder$Chart$Internal$Event$onMouseLeave(msg)
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Event$onMouseLeave(msg),
+				$data_viz_lab$elm_chart_builder$Chart$Internal$Event$onTouchEnd(msg)
 			]);
 	});
 var $data_viz_lab$elm_chart_builder$Chart$Internal$Constants$lineClassName = 'ecb-line';
