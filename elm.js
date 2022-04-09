@@ -7320,7 +7320,7 @@ var $author$project$Main$introView = function (model) {
 				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$text('Accessible and easy to create charts in elm')
+						$elm$html$Html$text('Accessible and easy to create charts in elm v7.0.2')
 					]))
 			]));
 };

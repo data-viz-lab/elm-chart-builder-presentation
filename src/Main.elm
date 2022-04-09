@@ -113,7 +113,7 @@ introView model =
                 [ Attributes.href "https://github.com/data-viz-lab/elm-chart-builder" ]
                 [ Html.text "elm-chart-builder" ]
             ]
-        , Html.h2 [] [ Html.text "Accessible and easy to create charts in elm" ]
+        , Html.h2 [] [ Html.text "Accessible and easy to create charts in elm v7.0.2" ]
         ]
 
 
